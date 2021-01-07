@@ -72,7 +72,14 @@ namespace File_Manager
 
             if ((fileAttributes & FileAttributes.Directory) == FileAttributes.Directory)
             {
-                _folderBrowserDialog = _folderBrowserDialog + item;
+                if (_folderBrowserDialog.EndsWith(@"\"))
+                {
+                    _folderBrowserDialog += item;
+                }
+                else
+                {
+                    _folderBrowserDialog += @"\" + item;
+                }
                 button1_Click();
             }
             else
