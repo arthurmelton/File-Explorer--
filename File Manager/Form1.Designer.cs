@@ -57,6 +57,8 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.ItemActivate += new System.EventHandler(this.listView1_ItemActivate);
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listView1_KeyDown);
+            this.listView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listView1_KeyPress);
             // 
             // textBox1
             // 

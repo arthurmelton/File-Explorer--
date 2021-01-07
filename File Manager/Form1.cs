@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using static System.IO.Directory;
 
@@ -29,10 +28,7 @@ namespace File_Manager
             listView1.Items.Clear();
             imageList1.Images.Clear();
             textBox1.Text = _folderBrowserDialog;
-            if (!textBox1.Focused)
-            {
-                textBox1.Text = textBox1.Text.Replace(@"\", " > ");
-            }
+            if (!textBox1.Focused) textBox1.Text = textBox1.Text.Replace(@"\", " > ");
             //using (_folderBrowserDialog = new FolderBrowserDialog { Description = @"Select your path."})
             //if (_folderBrowserDialog.ShowDialog() != DialogResult.OK) return;
 
@@ -43,7 +39,7 @@ namespace File_Manager
                 _files.Add(fileInfo.FullName);
                 listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
             }
-            
+
             foreach (var item in GetDirectories(_folderBrowserDialog))
             {
                 //imageList1.Images.Add(Icon.ExtractAssociatedIcon(pictureBox1.ImageLocation) ?? throw new InvalidOperationException());
@@ -64,11 +60,10 @@ namespace File_Manager
         private void listView1_ItemActivate(object sender, EventArgs e)
         {
             var item = listView1.SelectedItems[0].Text;
+
             if (item == null) return;
 
-            FileAttributes fileAttributes;
-            
-            fileAttributes = !_folderBrowserDialog.EndsWith(@"\") ? File.GetAttributes(_folderBrowserDialog + @"\" + item) : File.GetAttributes(_folderBrowserDialog + item);
+            var fileAttributes = !_folderBrowserDialog.EndsWith(@"\") ? File.GetAttributes(_folderBrowserDialog + @"\" + item) : File.GetAttributes(_folderBrowserDialog + item);
 
             if ((fileAttributes & FileAttributes.Directory) == FileAttributes.Directory)
             {
@@ -100,10 +95,7 @@ namespace File_Manager
             textBox1.Text = textBox1.Text.Replace(" > ", @"\");
 
             _folderBrowserDialog = textBox1.Text;
-            if (!textBox1.Focused)
-            {
-                textBox1.Text = textBox1.Text.Replace(@"\", " > ");
-            }
+            if (!textBox1.Focused) textBox1.Text = textBox1.Text.Replace(@"\", " > ");
             button1_Click();
         }
 
@@ -121,17 +113,11 @@ namespace File_Manager
         {
             var split = _folderBrowserDialog.Remove(_folderBrowserDialog.Length - 1);
 
-            while (split.EndsWith(@"\") == false)
-            {
-                split = split.Remove(split.Length - 1);
-            }
+            while (split.EndsWith(@"\") == false) split = split.Remove(split.Length - 1);
 
             _folderBrowserDialog = split;
             textBox1.Text = _folderBrowserDialog;
-            if (!textBox1.Focused)
-            {
-                textBox1.Text = textBox1.Text.Replace(@"\", " > ");
-            }
+            if (!textBox1.Focused) textBox1.Text = textBox1.Text.Replace(@"\", " > ");
             button1_Click();
         }
 
@@ -139,11 +125,31 @@ namespace File_Manager
         {
             _folderBrowserDialog = a;
             textBox1.Text = _folderBrowserDialog;
-            if (!textBox1.Focused)
-            {
-                textBox1.Text = textBox1.Text.Replace(@"\", " > ");
-            }
+            if (!textBox1.Focused) textBox1.Text = textBox1.Text.Replace(@"\", " > ");
             button1_Click();
+        }
+
+        private void listView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void listView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue != 46) return;
+
+            if (listView1.SelectedItems[0].Text == null) return;
+
+            var i = 0;
+            foreach (var item in listView1.SelectedItems)
+            {
+                var loc = listView1.SelectedItems[i].Index;
+
+                if (_files != null) File.Delete(_files[loc]);
+                listView1.Items.RemoveAt(loc);
+                if (_files != null) _files.RemoveAt(loc);
+                i++;
+            }
         }
     }
 }
