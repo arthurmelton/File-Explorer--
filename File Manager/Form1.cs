@@ -66,11 +66,13 @@ namespace File_Manager
             var item = listView1.SelectedItems[0].Text;
             if (item == null) return;
 
-            var fileAttributes = File.GetAttributes(_folderBrowserDialog + item + @"\");
+            FileAttributes fileAttributes;
+            
+            fileAttributes = !_folderBrowserDialog.EndsWith(@"\") ? File.GetAttributes(_folderBrowserDialog + @"\" + item) : File.GetAttributes(_folderBrowserDialog + item);
 
             if ((fileAttributes & FileAttributes.Directory) == FileAttributes.Directory)
             {
-                _folderBrowserDialog = _folderBrowserDialog + item + @"\";
+                _folderBrowserDialog = _folderBrowserDialog + item;
                 button1_Click();
             }
             else
@@ -118,6 +120,17 @@ namespace File_Manager
             }
 
             _folderBrowserDialog = split;
+            textBox1.Text = _folderBrowserDialog;
+            if (!textBox1.Focused)
+            {
+                textBox1.Text = textBox1.Text.Replace(@"\", " > ");
+            }
+            button1_Click();
+        }
+
+        public void ChangeDirectory(string a)
+        {
+            _folderBrowserDialog = a;
             textBox1.Text = _folderBrowserDialog;
             if (!textBox1.Focused)
             {
