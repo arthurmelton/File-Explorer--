@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7538331d-e3db-4c20-beae-78ba24372d56" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/File Manager.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/File Manager.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.Designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.resx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +18,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.Designer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/04/28967366/Icon.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Projects/File Manager/File Manager/Form1.Designer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Projects/File Manager/File Manager/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -156,7 +155,35 @@
       <option name="project" value="LOCAL" />
       <updated>1610036577519</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="auto made">
+      <created>1610041275105</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1610041275105</updated>
+    </task>
+    <task id="LOCAL-00012" summary="auto made">
+      <created>1610041285300</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1610041285300</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Made it work and made it look nicer">
+      <created>1610041313475</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1610041313475</updated>
+    </task>
+    <task id="LOCAL-00014" summary="auto made">
+      <created>1610041320921</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1610041320921</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,11 +208,12 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="used ui to make" />
     <MESSAGE value="Something that works and looks good" />
-    <MESSAGE value="auto made" />
     <MESSAGE value="made it so that it will be rounded and show the first form" />
     <MESSAGE value="made it so that it can go into subfolders from it" />
     <MESSAGE value="made with ui" />
     <MESSAGE value="Folder icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="Folder icon" />
+    <MESSAGE value="Made it work and made it look nicer" />
+    <MESSAGE value="auto made" />
+    <option name="LAST_COMMIT_MESSAGE" value="auto made" />
   </component>
 </project>
