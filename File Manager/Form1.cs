@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using static System.IO.Directory;
 
@@ -28,6 +29,10 @@ namespace File_Manager
             listView1.Items.Clear();
             imageList1.Images.Clear();
             textBox1.Text = _folderBrowserDialog;
+            if (!textBox1.Focused)
+            {
+                textBox1.Text = textBox1.Text.Replace(@"\", " > ");
+            }
             //using (_folderBrowserDialog = new FolderBrowserDialog { Description = @"Select your path."})
             //if (_folderBrowserDialog.ShowDialog() != DialogResult.OK) return;
 
@@ -65,13 +70,17 @@ namespace File_Manager
 
             if ((fileAttributes & FileAttributes.Directory) == FileAttributes.Directory)
             {
-
                 _folderBrowserDialog = _folderBrowserDialog + item + @"\";
                 button1_Click();
             }
             else
             {
-                if (_files != null) Process.Start(_files[listView1.FocusedItem.Index]);
+                var i = 0;
+                foreach (var items in listView1.SelectedItems)
+                {
+                    if (_files != null) Process.Start(_files[listView1.SelectedItems[i].Index]);
+                    i++;
+                }
             }
         }
 
@@ -79,18 +88,24 @@ namespace File_Manager
         {
             if (e.KeyChar != 13) return;
 
+            textBox1.Text = textBox1.Text.Replace(" > ", @"\");
+
             _folderBrowserDialog = textBox1.Text;
+            if (!textBox1.Focused)
+            {
+                textBox1.Text = textBox1.Text.Replace(@"\", " > ");
+            }
             button1_Click();
         }
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
-            textBox1.Text.Replace(@"\", " > ");
+            textBox1.Text = textBox1.Text.Replace(@"\", " > ");
         }
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-            textBox1.Text.Replace(" > ", @"\");
+            textBox1.Text = textBox1.Text.Replace(" > ", @"\");
         }
     }
 }
