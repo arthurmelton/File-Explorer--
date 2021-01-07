@@ -107,5 +107,23 @@ namespace File_Manager
         {
             textBox1.Text = textBox1.Text.Replace(" > ", @"\");
         }
+
+        private void Button1Click(object sender, EventArgs e)
+        {
+            var split = _folderBrowserDialog.Remove(_folderBrowserDialog.Length - 1);
+
+            while (split.EndsWith(@"\") == false)
+            {
+                split = split.Remove(split.Length - 1);
+            }
+
+            _folderBrowserDialog = split;
+            textBox1.Text = _folderBrowserDialog;
+            if (!textBox1.Focused)
+            {
+                textBox1.Text = textBox1.Text.Replace(@"\", " > ");
+            }
+            button1_Click();
+        }
     }
 }
