@@ -5,14 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7538331d-e3db-4c20-beae-78ba24372d56" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/File Manager/form 2.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/File Manager/form 2.resx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/File Manager.sln.DotSettings.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/File Manager/Form3.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/File Manager/Form3.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/File Manager/Untitled.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/File Manager.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/File Manager.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/form 2.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/form 2.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/form 2.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.resx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +29,12 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/File Manager/form 2.cs" />
-      <option value="$PROJECT_DIR$/File Manager/Program.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form1.cs" />
+      <option value="$PROJECT_DIR$/File Manager/3.cs" />
+      <option value="$PROJECT_DIR$/File Manager/Form2.cs" />
+      <option value="$PROJECT_DIR$/File Manager/Program.cs" />
+      <option value="$PROJECT_DIR$/File Manager/Form3.Designer.cs" />
+      <option value="$PROJECT_DIR$/File Manager/Form3.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1miWGFcFw0r9TBVTtnNLu6cpLB9" />
@@ -74,7 +82,8 @@
       <option name="presentableId" value="Default" />
       <updated>1609976793260</updated>
       <workItem from="1609976798575" duration="8761000" />
-      <workItem from="1610023415524" duration="2329000" />
+      <workItem from="1610023415524" duration="4322000" />
+      <workItem from="1610027899439" duration="3141000" />
     </task>
     <task id="LOCAL-00001" summary="auto made">
       <created>1609977777139</created>
@@ -111,7 +120,35 @@
       <option name="project" value="LOCAL" />
       <updated>1609981721106</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="auto made">
+      <created>1610026115038</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610026115038</updated>
+    </task>
+    <task id="LOCAL-00007" summary="made it so that it will be rounded and show the first form">
+      <created>1610026157874</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610026157874</updated>
+    </task>
+    <task id="LOCAL-00008" summary="made it so that it can go into subfolders from it">
+      <created>1610026224506</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610026224506</updated>
+    </task>
+    <task id="LOCAL-00009" summary="made with ui">
+      <created>1610026235801</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1610026235801</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,9 +171,12 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="auto made" />
     <MESSAGE value="used ui to make" />
     <MESSAGE value="Something that works and looks good" />
-    <option name="LAST_COMMIT_MESSAGE" value="Something that works and looks good" />
+    <MESSAGE value="auto made" />
+    <MESSAGE value="made it so that it will be rounded and show the first form" />
+    <MESSAGE value="made it so that it can go into subfolders from it" />
+    <MESSAGE value="made with ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="made with ui" />
   </component>
 </project>
