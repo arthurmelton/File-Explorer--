@@ -1,10 +1,11 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
 namespace File_Manager
 {
-    public partial class form_2 : Form
+    public partial class Form3 : Form
     {
         [DllImport("Gdi32.dll", EntryPoint="CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -16,16 +17,16 @@ namespace File_Manager
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
-
-        private Form1 _Form1;
         
-        public form_2()
+        public Form3()
         {
-            _Form1 = new Form1();
             InitializeComponent();
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn( 0, 0, Width-0, Height-0, 5, 5)); // adjust these parameters to get the look you want.
-            panel1.Controls.Add(_Form1);
-            
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn( 0, 0, Width-0, Height-0, 7, 7));
+            var frm1 = new Form1 {TopLevel = false, Visible = true};
+            panel1.Controls.Add(frm1);
+            //panel1.Dock = DockStyle.Fill;
+            label1.Font = new Font(label1.Font, FontStyle.Bold);
+
         }
     }
 }
