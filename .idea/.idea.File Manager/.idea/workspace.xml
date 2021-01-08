@@ -7,9 +7,6 @@
     <list default="true" id="7538331d-e3db-4c20-beae-78ba24372d56" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form3.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form3.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.resx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,12 +17,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.Designer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/04/28967366/Icon.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/93/05abb96f/__Error.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -34,8 +27,8 @@
       <option value="$PROJECT_DIR$/File Manager/Form2.cs" />
       <option value="$PROJECT_DIR$/File Manager/Program.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form3.Designer.cs" />
-      <option value="$PROJECT_DIR$/File Manager/Form1.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form3.cs" />
+      <option value="$PROJECT_DIR$/File Manager/Form1.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1miWGFcFw0r9TBVTtnNLu6cpLB9" />
@@ -90,7 +83,8 @@
       <workItem from="1610048764989" duration="982000" />
       <workItem from="1610049910514" duration="2155000" />
       <workItem from="1610052562382" duration="62000" />
-      <workItem from="1610060006115" duration="7424000" />
+      <workItem from="1610060006115" duration="7551000" />
+      <workItem from="1610068502685" duration="869000" />
     </task>
     <task id="LOCAL-00001" summary="auto made">
       <created>1609977777139</created>
@@ -246,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610063037741</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="step 1 of quick access and this pc">
+      <created>1610067539600</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1610067539600</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,6 +283,7 @@
     <MESSAGE value="auto made" />
     <MESSAGE value="Fixed an error" />
     <MESSAGE value="step 1 of deleting items" />
-    <option name="LAST_COMMIT_MESSAGE" value="step 1 of deleting items" />
+    <MESSAGE value="step 1 of quick access and this pc" />
+    <option name="LAST_COMMIT_MESSAGE" value="step 1 of quick access and this pc" />
   </component>
 </project>
