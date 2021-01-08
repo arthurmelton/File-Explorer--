@@ -62,7 +62,12 @@ namespace File_Manager
         {
             if (listBox2.SelectedItem == null) return;
 
-            var listBox = listBox2.SelectedItem.ToString();
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (treeView1.SelectedNode == null) return;
+        
+            var listBox = treeView1.SelectedNode.Name;
+            if (listBox == "This PC" || listBox == "Quick Access") return;
 
             frm1.ChangeDirectory(listBox);
             listBox1.ClearSelected();
