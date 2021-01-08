@@ -20,8 +20,6 @@ namespace File_Manager
         public Form1()
         {
             InitializeComponent();
-            //var form2 = new form_2();
-            //Application.Run(form2);
         }
 
         public void button1_Click()
