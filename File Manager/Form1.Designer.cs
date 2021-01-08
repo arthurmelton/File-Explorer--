@@ -35,6 +35,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,6 +94,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1Click);
             // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer) (resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "real9.png");
+            this.imageList2.Images.SetKeyName(1, "real8.png");
+            this.imageList2.Images.SetKeyName(2, "real7.png");
+            this.imageList2.Images.SetKeyName(3, "real6.png");
+            this.imageList2.Images.SetKeyName(4, "real5.png");
+            this.imageList2.Images.SetKeyName(5, "real4.png");
+            this.imageList2.Images.SetKeyName(6, "real3.png");
+            this.imageList2.Images.SetKeyName(7, "real2.png");
+            this.imageList2.Images.SetKeyName(8, "real1.png");
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,6 +125,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ImageList imageList2;
 
         private System.Windows.Forms.Button button1;
 

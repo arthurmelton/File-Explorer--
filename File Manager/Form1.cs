@@ -44,7 +44,7 @@ namespace File_Manager
 
             foreach (var item in GetDirectories(_folderBrowserDialog))
             {
-                //imageList1.Images.Add(Icon.ExtractAssociatedIcon(pictureBox1.ImageLocation) ?? throw new InvalidOperationException());
+                imageList1.Images.Add(imageList2.Images[6] ?? throw new InvalidOperationException());
                 var fileInfo = new FileInfo(item);
                 _files.Add(fileInfo.FullName);
                 listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
