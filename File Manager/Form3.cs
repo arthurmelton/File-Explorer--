@@ -36,7 +36,7 @@ namespace File_Manager
             var i = 0;
             foreach(var drive in DriveInfo.GetDrives())
             {
-                listBox2.Items.Add(drive.Name);
+                listBox1.Items.Add(drive.Name);
                 i++;
             }
             panel6.Height = i * 20;
@@ -60,29 +60,33 @@ namespace File_Manager
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var listBox = listBox1.SelectedItem.ToString();
+            if (listBox2.SelectedItem == null) return;
+
+            var listBox = listBox2.SelectedItem.ToString();
 
             frm1.ChangeDirectory(listBox);
-            listBox2.ClearSelected();
+            listBox1.ClearSelected();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            panel5.Visible = !panel5.Visible;
+            panel6.Visible = !panel6.Visible;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            panel6.Visible = !panel6.Visible;
+            panel7.Visible = !panel7.Visible;
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var listBox = listBox2.SelectedItem.ToString();
+            if (listBox1.SelectedItem == null) return;
+        
+            var listBox = listBox1.SelectedItem.ToString();
 
             frm1.ChangeDirectory(listBox);
 
-            listBox1.ClearSelected();
+            listBox2.ClearSelected();
         }
     }
 }
