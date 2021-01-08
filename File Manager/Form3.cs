@@ -32,10 +32,15 @@ namespace File_Manager
             button1.FlatAppearance.BorderSize = 0;
             button2.FlatAppearance.BorderSize = 0;
             button3.FlatAppearance.BorderSize = 0;
+            //listBox1.Items.Add("OneDrive");
+            var i = 0;
             foreach(var drive in DriveInfo.GetDrives())
             {
-                listBox1.Items.Add(drive.Name);
+                listBox2.Items.Add(drive.Name);
+                i++;
             }
+            panel6.Height = i * 20;
+            button4.FlatAppearance.BorderSize = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -58,6 +63,26 @@ namespace File_Manager
             var listBox = listBox1.SelectedItem.ToString();
 
             frm1.ChangeDirectory(listBox);
+            listBox2.ClearSelected();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panel5.Visible = !panel5.Visible;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            panel6.Visible = !panel6.Visible;
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var listBox = listBox2.SelectedItem.ToString();
+
+            frm1.ChangeDirectory(listBox);
+
+            listBox1.ClearSelected();
         }
     }
 }

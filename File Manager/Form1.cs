@@ -5,6 +5,8 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using static System.IO.Directory;
+using System.IO;
+using System.Linq;
 
 namespace File_Manager
 {
@@ -123,7 +125,28 @@ namespace File_Manager
 
         public void ChangeDirectory(string a)
         {
-            _folderBrowserDialog = a;
+            switch (a)
+            {
+                case "OneDrive":
+                    _folderBrowserDialog = @"C:\Users\" + System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\OneDrive";
+                    break;
+                case "Desktop":
+                    _folderBrowserDialog = @"C:\Users\" + System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\Desktop";
+                    break;
+                case "Documents":
+                    _folderBrowserDialog = @"C:\Users\" + System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\Documents";
+                    break;
+                case "Pictures":
+                    _folderBrowserDialog = @"C:\Users\" + System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\Pictures";
+                    break;
+                case "Downloads":
+                    _folderBrowserDialog = @"C:\Users\" + System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\Downloads";
+                    break;
+                default:
+                    _folderBrowserDialog = a;
+
+                    break;
+            }
             textBox1.Text = _folderBrowserDialog;
             if (!textBox1.Focused) textBox1.Text = textBox1.Text.Replace(@"\", " > ");
             button1_Click();
