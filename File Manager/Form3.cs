@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.IO;
+using System.Linq;
 
 namespace File_Manager
 {
@@ -32,15 +34,42 @@ namespace File_Manager
             button1.FlatAppearance.BorderSize = 0;
             button2.FlatAppearance.BorderSize = 0;
             button3.FlatAppearance.BorderSize = 0;
+            var treeList = new ImageList();
+            treeList.Images.Add(pictureBox4.Image);
+            treeList.Images.Add(pictureBox2.Image);
+            treeList.Images.Add(pictureBox3.Image);
+            treeList.Images.Add(pictureBox5.Image);
+            treeList.Images.Add(pictureBox6.Image);
+            treeList.Images.Add(pictureBox7.Image);
+            treeView1.ImageList = treeList;
             //listBox1.Items.Add("OneDrive");
             var i = 0;
+            var pc = treeView1.Nodes.Find("This PC", false);
+            var Desktop = treeView1.Nodes.Find("Desktop", true);
+            var down = treeView1.Nodes.Find("Downloads", true);
+            var quick = treeView1.Nodes.Find("Quick Access", false);
+            var pic = treeView1.Nodes.Find("Pictures", true);
+            pc[0].ImageIndex = 1;
+            pc[0].SelectedImageIndex = 1;
+            quick[0].ImageIndex = 2;
+            quick[0].SelectedImageIndex = 2;
+            Desktop[0].ImageIndex = 3;
+            Desktop[0].SelectedImageIndex = 3;
+            down[0].ImageIndex = 4;
+            down[0].SelectedImageIndex = 4;
+            pic[0].ImageIndex = 5;
+            pic[0].SelectedImageIndex = 5;
             foreach(var drive in DriveInfo.GetDrives())
             {
-                listBox1.Items.Add(drive.Name);
+                if (pc[0] == null) return;
+                var edit = pc[0].Nodes.Add(drive.Name);
+                edit.Name = drive.Name;
+                edit.BackColor = Color.FromArgb(206, 217, 230);
+                edit.NodeFont = new Font(FontFamily.GenericSerif, 12);
+                //edit.ImageIndex = 1;
                 i++;
             }
-            panel6.Height = i * 20;
-            button4.FlatAppearance.BorderSize = 0;
+            treeView1.Nodes[treeView1.Nodes.Count - 1].EnsureVisible();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -58,9 +87,15 @@ namespace File_Manager
             this.WindowState = FormWindowState.Maximized;
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (listBox2.SelectedItem == null) return;
+
+        }
+
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            //throw new System.NotImplementedException();
+        }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -70,28 +105,6 @@ namespace File_Manager
             if (listBox == "This PC" || listBox == "Quick Access") return;
 
             frm1.ChangeDirectory(listBox);
-            listBox1.ClearSelected();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            panel6.Visible = !panel6.Visible;
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            panel7.Visible = !panel7.Visible;
-        }
-
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedItem == null) return;
-        
-            var listBox = listBox1.SelectedItem.ToString();
-
-            frm1.ChangeDirectory(listBox);
-
-            listBox2.ClearSelected();
         }
     }
 }
