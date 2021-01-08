@@ -162,16 +162,14 @@ namespace File_Manager
             if (e.KeyValue != 46) return;
 
             if (listView1.SelectedItems[0].Text == null) return;
-
-            var i = 0;
+            
             foreach (var item in listView1.SelectedItems)
             {
-                var loc = listView1.SelectedItems[i].Index;
+                var loc = listView1.SelectedItems[0].Index;
 
                 if (_files != null) File.Delete(_files[loc]);
                 listView1.Items.RemoveAt(loc);
                 if (_files != null) _files.RemoveAt(loc);
-                i++;
             }
         }
     }
