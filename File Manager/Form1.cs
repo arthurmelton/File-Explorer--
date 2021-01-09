@@ -185,7 +185,7 @@ namespace File_Manager
         {
             if (File.Exists(_folderBrowserDialog + @"\untitled.txt"))
             {
-                Add(1);
+                Add(1, "untitled (", ").txt");
             }
             else
             {
@@ -198,11 +198,11 @@ namespace File_Manager
 
         }
 
-        private void Add(int i)
+        private void Add(int i, string beforeNumber, string afterNumber)
         {
             while (true)
             {
-                if (File.Exists(_folderBrowserDialog + @"\untitled " + i + ".txt"))
+                if (File.Exists(_folderBrowserDialog + @"\untitled (" + i + ").txt"))
                 {
                     i += 1;
 
@@ -210,15 +210,24 @@ namespace File_Manager
                 }
                 else
                 {
-                    _files.Add("untitled " + i + ".txt");
-                    File.Create(_folderBrowserDialog + @"\untitled " + i + ".txt");
+                    _files.Add("untitled (" + i + ").txt");
+                    File.Create(_folderBrowserDialog + @"\untitled (" + i + ").txt");
                     listView1.SelectedItems.Clear();
-                    imageList1.Images.Add(Icon.ExtractAssociatedIcon(_folderBrowserDialog + @"\untitled " + i + ".txt") ?? throw new InvalidOperationException());
-                    listView1.Items.Add("untitled " + i + ".txt", imageList1.Images.Count - 1);
+                    imageList1.Images.Add(Icon.ExtractAssociatedIcon(_folderBrowserDialog + @"\untitled (" + i + ").txt") ?? throw new InvalidOperationException());
+                    listView1.Items.Add("untitled (" + i + ").txt", imageList1.Images.Count - 1);
                 }
 
                 break;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems[0].Text == null) return;
+            var loc = _files[listView1.SelectedItems[0].Index];
+            var split = listView1.SelectedItems[0].Name.Remove(listView1.SelectedItems[0].Name.Length - 1);
+            while (split.EndsWith(@"\") == false) split = split.Remove(split.Length - 1);
+            File.Move(loc, split + "tes.txt");
         }
     }
 }
