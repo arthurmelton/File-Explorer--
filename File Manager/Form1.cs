@@ -5,9 +5,10 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Security.Principal;
+using System.Threading;
 using System.Windows.Forms;
-using static System.IO.Directory;
 using Microsoft.WindowsAPICodePack.Shell;
+using static System.IO.Directory;
 
 namespace File_Manager
 {
@@ -18,12 +19,21 @@ namespace File_Manager
 
         private string _folderBrowserDialog;
 
-        public Form1()
+        private Thread _thread;
+
+        public Form1(Thread thread)
         {
+            _thread = thread;
             InitializeComponent();
         }
 
-        public void button1_Click()
+        private void button1_Click()
+        {
+            _thread = new Thread(threadThis);
+            _thread.Start();
+        }
+
+        private void threadThis()
         {
             _files.Clear();
             listView1.Items.Clear();

@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace File_Manager
@@ -28,7 +29,7 @@ namespace File_Manager
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             SetStyle(ControlStyles.ResizeRedraw, true);
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
-            _frm1 = new Form1 {TopLevel = false, Visible = true};
+            _frm1 = new Form1(Thread.CurrentThread) {TopLevel = false, Visible = true};
             panel1.Controls.Add(_frm1);
             //panel1.Dock = DockStyle.Fill;
             label1.Font = new Font(label1.Font, FontStyle.Bold);
