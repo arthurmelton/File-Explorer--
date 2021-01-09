@@ -229,5 +229,11 @@ namespace File_Manager
             while (split.EndsWith(@"\") == false) split = split.Remove(split.Length - 1);
             File.Move(loc, split + "tes.txt");
         }
+
+        public void ChangeSize(int h, int w)
+        {
+            Width = w;
+            Height = h;
+        }
     }
 }

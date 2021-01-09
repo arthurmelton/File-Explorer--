@@ -1,16 +1,14 @@
 using System;
-using System.Collections;
 using System.Drawing;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
 using System.IO;
-using System.Linq;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace File_Manager
 {
     public partial class Form3 : Form
     {
-        [DllImport("Gdi32.dll", EntryPoint="CreateRoundRectRgn")]
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
             int nLeftRect, // x-coordinate of upper-left corner
@@ -21,12 +19,14 @@ namespace File_Manager
             int nHeightEllipse // width of ellipse
         );
 
-        private Form1 frm1;
-        
+        private readonly Form1 frm1;
+
         public Form3()
         {
             InitializeComponent();
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn( 0, 0, Width-0, Height-0, 7, 7));
+            DoubleBuffered = true;
+            SetStyle(ControlStyles.ResizeRedraw, true);
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
             frm1 = new Form1 {TopLevel = false, Visible = true};
             panel1.Controls.Add(frm1);
             //panel1.Dock = DockStyle.Fill;
@@ -40,7 +40,7 @@ namespace File_Manager
             treeView1.SelectedImageIndex = 6;
             var i = 0;
             var pc = treeView1.Nodes.Find("This PC", false);
-            var Desktop = treeView1.Nodes.Find("Desktop", true);
+            /*var Desktop = treeView1.Nodes.Find("Desktop", true);
             var down = treeView1.Nodes.Find("Downloads", true);
             var quick = treeView1.Nodes.Find("Quick Access", false);
             var pic = treeView1.Nodes.Find("Pictures", true);
@@ -53,10 +53,11 @@ namespace File_Manager
             down[0].ImageIndex = 2;
             down[0].SelectedImageIndex = 2;
             pic[0].ImageIndex = 5;
-            pic[0].SelectedImageIndex = 5;
-            foreach(var drive in DriveInfo.GetDrives())
+            pic[0].SelectedImageIndex = 5;*/
+            foreach (var drive in DriveInfo.GetDrives())
             {
                 if (pc[0] == null) return;
+
                 var edit = pc[0].Nodes.Add(drive.Name);
                 edit.Name = drive.Name;
                 edit.BackColor = Color.FromArgb(206, 217, 230);
@@ -67,6 +68,44 @@ namespace File_Manager
             treeView1.Nodes[treeView1.Nodes.Count - 1].EnsureVisible();
         }
 
+        private const int cGrip = 16; // Grip size
+
+        private const int cCaption = 32; // Caption bar height;
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            var rc = new Rectangle(ClientSize.Width - cGrip, ClientSize.Height - cGrip, cGrip, cGrip);
+            ControlPaint.DrawSizeGrip(e.Graphics, BackColor, rc);
+            rc = new Rectangle(0, 0, ClientSize.Width, cCaption);
+            e.Graphics.FillRectangle(Brushes.DarkBlue, rc);
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
+            frm1.ChangeSize(this.panel1.Size.Height, this.panel1.Size.Width);
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x84)
+            {
+                // Trap WM_NCHITTEST
+                var pos = new Point(m.LParam.ToInt32());
+                pos = PointToClient(pos);
+                if (pos.Y < cCaption)
+                {
+                    m.Result = (IntPtr) 2; // HTCAPTION
+
+                    return;
+                }
+                if (pos.X >= ClientSize.Width - cGrip && pos.Y >= ClientSize.Height - cGrip)
+                {
+                    m.Result = (IntPtr) 17; // HTBOTTOMRIGHT
+
+                    return;
+                }
+                Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
+            }
+            base.WndProc(ref m);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -74,12 +113,12 @@ namespace File_Manager
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+            WindowState = FormWindowState.Maximized;
         }
 
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -95,8 +134,9 @@ namespace File_Manager
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (treeView1.SelectedNode == null) return;
-        
+
             var listBox = treeView1.SelectedNode.Name;
+
             if (listBox == "This PC" || listBox == "Quick Access") return;
 
             frm1.ChangeDirectory(listBox);

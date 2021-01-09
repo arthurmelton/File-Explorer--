@@ -32,12 +32,12 @@ namespace File_Manager
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Desktop");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Desktop", 3, 3);
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Documents");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Downloads");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Pictures");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Quick Access", new System.Windows.Forms.TreeNode[] {treeNode1, treeNode2, treeNode3, treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("This PC");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Downloads", 2, 2);
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Pictures", 5, 5);
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Quick Access", 8, 8, new System.Windows.Forms.TreeNode[] {treeNode1, treeNode2, treeNode3, treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("This PC", 7, 7);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -58,11 +58,12 @@ namespace File_Manager
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles) ((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(204, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(846, 641);
+            this.panel1.Size = new System.Drawing.Size(792, 641);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -86,9 +87,11 @@ namespace File_Manager
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1050, 37);
             this.panel3.TabIndex = 1;
+            //this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.OnPaint());
             // 
             // button3
             // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("button3.BackgroundImage")));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -103,6 +106,7 @@ namespace File_Manager
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -117,6 +121,7 @@ namespace File_Manager
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -149,7 +154,6 @@ namespace File_Manager
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 35);
             this.label1.TabIndex = 0;
-            this.label1.Text = "File Explorer++";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.UseMnemonic = false;
             // 
@@ -176,8 +180,10 @@ namespace File_Manager
             this.treeView1.Name = "treeView1";
             treeNode1.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (206)))), ((int) (((byte) (217)))), ((int) (((byte) (230)))));
             treeNode1.ForeColor = System.Drawing.SystemColors.WindowText;
+            treeNode1.ImageIndex = 3;
             treeNode1.Name = "Desktop";
             treeNode1.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            treeNode1.SelectedImageIndex = 3;
             treeNode1.Text = "Desktop";
             treeNode2.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (206)))), ((int) (((byte) (217)))), ((int) (((byte) (230)))));
             treeNode2.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -186,28 +192,36 @@ namespace File_Manager
             treeNode2.Text = "Documents";
             treeNode3.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (206)))), ((int) (((byte) (217)))), ((int) (((byte) (230)))));
             treeNode3.ForeColor = System.Drawing.SystemColors.WindowText;
+            treeNode3.ImageIndex = 2;
             treeNode3.Name = "Downloads";
             treeNode3.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            treeNode3.SelectedImageIndex = 2;
             treeNode3.Text = "Downloads";
             treeNode4.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (206)))), ((int) (((byte) (217)))), ((int) (((byte) (230)))));
             treeNode4.ForeColor = System.Drawing.SystemColors.WindowText;
+            treeNode4.ImageIndex = 5;
             treeNode4.Name = "Pictures";
             treeNode4.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            treeNode4.SelectedImageIndex = 5;
             treeNode4.Text = "Pictures";
             treeNode5.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (206)))), ((int) (((byte) (217)))), ((int) (((byte) (230)))));
             treeNode5.ForeColor = System.Drawing.SystemColors.WindowText;
+            treeNode5.ImageIndex = 8;
             treeNode5.Name = "Quick Access";
             treeNode5.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            treeNode5.SelectedImageIndex = 8;
             treeNode5.Text = "Quick Access";
             treeNode6.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (206)))), ((int) (((byte) (217)))), ((int) (((byte) (230)))));
             treeNode6.ForeColor = System.Drawing.SystemColors.WindowText;
+            treeNode6.ImageIndex = 7;
             treeNode6.Name = "This PC";
             treeNode6.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            treeNode6.SelectedImageIndex = 7;
             treeNode6.Text = "This PC";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {treeNode5, treeNode6});
             this.treeView1.ShowLines = false;
             this.treeView1.ShowPlusMinus = false;
-            this.treeView1.Size = new System.Drawing.Size(206, 638);
+            this.treeView1.Size = new System.Drawing.Size(206, 675);
             this.treeView1.TabIndex = 8;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
@@ -245,7 +259,7 @@ namespace File_Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (206)))), ((int) (((byte) (217)))), ((int) (((byte) (239)))));
             this.ClientSize = new System.Drawing.Size(1050, 675);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
