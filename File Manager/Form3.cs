@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace File_Manager
 {
-    public partial class Form3 : Form
+    public sealed partial class Form3 : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -19,7 +19,7 @@ namespace File_Manager
             int nHeightEllipse // width of ellipse
         );
 
-        private readonly Form1 frm1;
+        private readonly Form1 _frm1;
 
         public Form3()
         {
@@ -27,8 +27,8 @@ namespace File_Manager
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
-            frm1 = new Form1 {TopLevel = false, Visible = true};
-            panel1.Controls.Add(frm1);
+            _frm1 = new Form1 {TopLevel = false, Visible = true};
+            panel1.Controls.Add(_frm1);
             //panel1.Dock = DockStyle.Fill;
             label1.Font = new Font(label1.Font, FontStyle.Bold);
             button1.FlatAppearance.BorderSize = 0;
@@ -38,7 +38,6 @@ namespace File_Manager
             //listBox1.Items.Add("OneDrive");
             treeView1.ImageIndex = 6;
             treeView1.SelectedImageIndex = 6;
-            var i = 0;
             var pc = treeView1.Nodes.Find("This PC", false);
             /*var Desktop = treeView1.Nodes.Find("Desktop", true);
             var down = treeView1.Nodes.Find("Downloads", true);
@@ -63,48 +62,47 @@ namespace File_Manager
                 edit.BackColor = Color.FromArgb(206, 217, 230);
                 edit.NodeFont = new Font(FontFamily.GenericSerif, 12);
                 //edit.ImageIndex = 1;
-                i++;
             }
             treeView1.Nodes[treeView1.Nodes.Count - 1].EnsureVisible();
         }
         
-        private bool dragging = false;
-        private Point dragCursorPoint;
-        private Point dragFormPoint;
+        private bool _dragging;
+        private Point _dragCursorPoint;
+        private Point _dragFormPoint;
 
         private void FormMain_MouseDown(object sender, MouseEventArgs e)
         {
-            dragging = true;
-            dragCursorPoint = Cursor.Position;
-            dragFormPoint = this.Location;
+            _dragging = true;
+            _dragCursorPoint = Cursor.Position;
+            _dragFormPoint = Location;
         }
 
         private void FormMain_MouseMove(object sender, MouseEventArgs e)
         {
-            if (dragging)
+            if (_dragging)
             {
-                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                this.Location = Point.Add(dragFormPoint, new Size(dif));
+                Point dif = Point.Subtract(Cursor.Position, new Size(_dragCursorPoint));
+                Location = Point.Add(_dragFormPoint, new Size(dif));
             }
         }
 
         private void FormMain_MouseUp(object sender, MouseEventArgs e)
         {
-            dragging = false;
+            _dragging = false;
         }
 
-        private const int cGrip = 16; // Grip size
+        private const int CGrip = 16; // Grip size
 
-        private const int cCaption = 32; // Caption bar height;
+        private const int CCaption = 32; // Caption bar height;
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var rc = new Rectangle(ClientSize.Width - cGrip, ClientSize.Height - cGrip, cGrip, cGrip);
+            var rc = new Rectangle(ClientSize.Width - CGrip, ClientSize.Height - CGrip, CGrip, CGrip);
             ControlPaint.DrawSizeGrip(e.Graphics, BackColor, rc);
-            rc = new Rectangle(0, 0, ClientSize.Width, cCaption);
+            rc = new Rectangle(0, 0, ClientSize.Width, CCaption);
             e.Graphics.FillRectangle(Brushes.DarkBlue, rc);
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
-            frm1.ChangeSize(panel1.Size.Height, panel1.Size.Width);
+            _frm1.ChangeSize(panel1.Size.Height, panel1.Size.Width);
         }
 
         protected override void WndProc(ref Message m)
@@ -115,13 +113,13 @@ namespace File_Manager
                 // Trap WM_NCHITTEST
                 var pos = new Point(m.LParam.ToInt32());
                 pos = PointToClient(pos);
-                if (pos.Y < cCaption)
+                if (pos.Y < CCaption)
                 {
                     m.Result = (IntPtr) 2; // HTCAPTION
 
                     return;
                 }
-                if (pos.X >= ClientSize.Width - cGrip && pos.Y >= ClientSize.Height - cGrip)
+                if (pos.X >= ClientSize.Width - CGrip && pos.Y >= ClientSize.Height - CGrip)
                 {
                     m.Result = (IntPtr) 17; // HTBOTTOMRIGHT
 
@@ -166,17 +164,8 @@ namespace File_Manager
 
             if (listBox == "This PC" || listBox == "Quick Access") return;
 
-            frm1.ChangeDirectory(listBox);
+            _frm1.ChangeDirectory(listBox);
         }
 
-        private void panel3_MouseDown(object sender, MouseEventArgs e)
-        {
-            //this.PointToScreen()
-        }
-
-        private void th(object sender, MouseEventArgs e)
-        {
-            //this.PointToScreen()
-        }
     }
 }

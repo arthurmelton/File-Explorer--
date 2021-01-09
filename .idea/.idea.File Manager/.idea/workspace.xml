@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7538331d-e3db-4c20-beae-78ba24372d56" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form3.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Form3.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Form3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Properties/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Properties/Resources.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Properties/Resources.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Properties/Settings.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Properties/Settings.Designer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +24,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/80/66a9c4f2/Image.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Projects/File Manager/File Manager/Form3.Designer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/04/28967366/Icon.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/93/05abb96f/__Error.cs" root0="SKIP_HIGHLIGHTING" />
@@ -31,9 +37,9 @@
       <option value="$PROJECT_DIR$/File Manager/3.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form2.cs" />
       <option value="$PROJECT_DIR$/File Manager/Program.cs" />
-      <option value="$PROJECT_DIR$/File Manager/Form1.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form3.Designer.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form3.cs" />
+      <option value="$PROJECT_DIR$/File Manager/Form1.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1miWGFcFw0r9TBVTtnNLu6cpLB9" />
@@ -92,7 +98,7 @@
       <workItem from="1610068502685" duration="869000" />
       <workItem from="1610110684668" duration="6308000" />
       <workItem from="1610119863353" duration="10796000" />
-      <workItem from="1610198290656" duration="427000" />
+      <workItem from="1610198290656" duration="800000" />
     </task>
     <task id="LOCAL-00001" summary="auto made">
       <created>1609977777139</created>
@@ -353,7 +359,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610198713517</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Can fullscreen now">
+      <created>1610198893632</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1610198893632</updated>
+    </task>
+    <task id="LOCAL-00039" summary="auto made">
+      <created>1610198925370</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1610198925370</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,9 +415,10 @@
     <MESSAGE value="use treeview now" />
     <MESSAGE value="1st version of adding files" />
     <MESSAGE value="can rename files" />
-    <MESSAGE value="auto made" />
     <MESSAGE value="1st version of resize" />
     <MESSAGE value="Can move now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Can move now" />
+    <MESSAGE value="Can fullscreen now" />
+    <MESSAGE value="auto made" />
+    <option name="LAST_COMMIT_MESSAGE" value="auto made" />
   </component>
 </project>

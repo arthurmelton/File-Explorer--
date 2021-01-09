@@ -43,7 +43,7 @@ namespace File_Manager
 
             foreach (var item in GetDirectories(_folderBrowserDialog))
             {
-                imageList1.Images.Add(imageList2.Images[6] ?? throw new InvalidOperationException());
+                imageList1.Images.Add(imageList2.Images[6]);
                 var fileInfo = new FileInfo(item);
                 _files.Add(fileInfo.FullName);
                 listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
@@ -75,7 +75,7 @@ namespace File_Manager
             else
             {
                 var i = 0;
-                foreach (var items in listView1.SelectedItems)
+                foreach (var unused in listView1.SelectedItems)
                 {
                     if (_files != null) Process.Start(_files[listView1.SelectedItems[i].Index]);
                     i++;
@@ -161,7 +161,7 @@ namespace File_Manager
 
             if (listView1.SelectedItems[0].Text == null) return;
 
-            foreach (var item in listView1.SelectedItems)
+            foreach (var unused in listView1.SelectedItems)
             {
                 var loc = listView1.SelectedItems[0].Index;
 
@@ -178,14 +178,14 @@ namespace File_Manager
 
         private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button != MouseButtons.Right) return;
+            //if (e.Button != MouseButtons.Right) return;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             if (File.Exists(_folderBrowserDialog + @"\untitled.txt"))
             {
-                Add(1, "untitled (", ").txt");
+                Add(1);
             }
             else
             {
@@ -198,7 +198,7 @@ namespace File_Manager
 
         }
 
-        private void Add(int i, string beforeNumber, string afterNumber)
+        private void Add(int i)
         {
             while (true)
             {
@@ -208,14 +208,11 @@ namespace File_Manager
 
                     continue;
                 }
-                else
-                {
-                    _files.Add("untitled (" + i + ").txt");
-                    File.Create(_folderBrowserDialog + @"\untitled (" + i + ").txt");
-                    listView1.SelectedItems.Clear();
-                    imageList1.Images.Add(Icon.ExtractAssociatedIcon(_folderBrowserDialog + @"\untitled (" + i + ").txt") ?? throw new InvalidOperationException());
-                    listView1.Items.Add("untitled (" + i + ").txt", imageList1.Images.Count - 1);
-                }
+                _files.Add("untitled (" + i + ").txt");
+                File.Create(_folderBrowserDialog + @"\untitled (" + i + ").txt");
+                listView1.SelectedItems.Clear();
+                imageList1.Images.Add(Icon.ExtractAssociatedIcon(_folderBrowserDialog + @"\untitled (" + i + ").txt") ?? throw new InvalidOperationException());
+                listView1.Items.Add("untitled (" + i + ").txt", imageList1.Images.Count - 1);
 
                 break;
             }

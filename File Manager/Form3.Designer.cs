@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace File_Manager
 {
-    partial class Form3
+    sealed partial class Form3
     {
         /// <summary>
         /// Required designer variable.
