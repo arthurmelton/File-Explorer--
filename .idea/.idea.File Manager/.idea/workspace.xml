@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7538331d-e3db-4c20-beae-78ba24372d56" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/File Manager/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/File Manager.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/File Manager.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form3.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Form1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.resx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/Form3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Properties/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Properties/AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Properties/Resources.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Properties/Resources.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Properties/Settings.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Properties/Settings.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/packages.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,13 +22,23 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/80/66a9c4f2/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Projects/File Manager/File Manager/Form3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Projects/File Manager/File Manager/Form3.Designer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/04/28967366/Icon.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/93/05abb96f/__Error.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/db/48d2da4d/RuntimeConstructorInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Projects/File Manager/File Manager/Form3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/80/66a9c4f2/Image.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3B28F550-0D54-4E01-9E30-DCA09FAB36D7/12/14521e73/Control.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form3.Designer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Properties/AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.Designer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -38,8 +47,8 @@
       <option value="$PROJECT_DIR$/File Manager/Form2.cs" />
       <option value="$PROJECT_DIR$/File Manager/Program.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form3.Designer.cs" />
-      <option value="$PROJECT_DIR$/File Manager/Form3.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form1.cs" />
+      <option value="$PROJECT_DIR$/File Manager/Form3.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1miWGFcFw0r9TBVTtnNLu6cpLB9" />
@@ -98,7 +107,7 @@
       <workItem from="1610068502685" duration="869000" />
       <workItem from="1610110684668" duration="6308000" />
       <workItem from="1610119863353" duration="10796000" />
-      <workItem from="1610198290656" duration="800000" />
+      <workItem from="1610198290656" duration="13825000" />
     </task>
     <task id="LOCAL-00001" summary="auto made">
       <created>1609977777139</created>
@@ -373,7 +382,42 @@
       <option name="project" value="LOCAL" />
       <updated>1610198925370</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="cleaned code">
+      <created>1610199147715</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1610199147715</updated>
+    </task>
+    <task id="LOCAL-00041" summary="better resize">
+      <created>1610213839415</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1610213839415</updated>
+    </task>
+    <task id="LOCAL-00042" summary="better resolution">
+      <created>1610215860817</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1610215860817</updated>
+    </task>
+    <task id="LOCAL-00043" summary="1st step of threading">
+      <created>1610221144574</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1610221144574</updated>
+    </task>
+    <task id="LOCAL-00044" summary="1st step of adding a progress bar">
+      <created>1610225089741</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1610225089741</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,9 +440,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="used ui to make" />
-    <MESSAGE value="Something that works and looks good" />
-    <MESSAGE value="made it so that it will be rounded and show the first form" />
     <MESSAGE value="made it so that it can go into subfolders from it" />
     <MESSAGE value="made with ui" />
     <MESSAGE value="Folder icon" />
@@ -419,6 +460,11 @@
     <MESSAGE value="Can move now" />
     <MESSAGE value="Can fullscreen now" />
     <MESSAGE value="auto made" />
-    <option name="LAST_COMMIT_MESSAGE" value="auto made" />
+    <MESSAGE value="cleaned code" />
+    <MESSAGE value="better resize" />
+    <MESSAGE value="better resolution" />
+    <MESSAGE value="1st step of threading" />
+    <MESSAGE value="1st step of adding a progress bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="1st step of adding a progress bar" />
   </component>
 </project>
