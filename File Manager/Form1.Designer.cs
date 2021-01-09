@@ -36,6 +36,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.contextMenu1 = new System.Windows.Forms.ContextMenu();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,6 +62,7 @@
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.listView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listView1_KeyDown);
             this.listView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listView1_KeyPress);
+            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
             // 
             // textBox1
             // 
@@ -108,12 +111,27 @@
             this.imageList2.Images.SetKeyName(7, "real2.png");
             this.imageList2.Images.SetKeyName(8, "real1.png");
             // 
+            // contextMenu1
+            // 
+            this.contextMenu1.Popup += new System.EventHandler(this.contextMenu1_Popup);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(87, 22);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(82, 35);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "add";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(846, 641);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox1);
@@ -125,6 +143,10 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button button2;
+
+        private System.Windows.Forms.ContextMenu contextMenu1;
 
         private System.Windows.Forms.ImageList imageList2;
 

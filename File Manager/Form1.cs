@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Security.Principal;
 using System.Windows.Forms;
 using static System.IO.Directory;
-using System.IO;
-using System.Linq;
 
 namespace File_Manager
 {
@@ -31,6 +31,7 @@ namespace File_Manager
             if (!textBox1.Focused) textBox1.Text = textBox1.Text.Replace(@"\", " > ");
             //using (_folderBrowserDialog = new FolderBrowserDialog { Description = @"Select your path."})
             //if (_folderBrowserDialog.ShowDialog() != DialogResult.OK) return;
+
 
             foreach (var item in GetFiles(_folderBrowserDialog))
             {
@@ -67,14 +68,8 @@ namespace File_Manager
 
             if ((fileAttributes & FileAttributes.Directory) == FileAttributes.Directory)
             {
-                if (_folderBrowserDialog.EndsWith(@"\"))
-                {
-                    _folderBrowserDialog += item;
-                }
-                else
-                {
-                    _folderBrowserDialog += @"\" + item;
-                }
+                if (_folderBrowserDialog.EndsWith(@"\")) _folderBrowserDialog += item;
+                else _folderBrowserDialog += @"\" + item;
                 button1_Click();
             }
             else
@@ -126,19 +121,24 @@ namespace File_Manager
             switch (a)
             {
                 case "OneDrive":
-                    _folderBrowserDialog = @"C:\Users\" + System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\OneDrive";
+                    _folderBrowserDialog = @"C:\Users\" + WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\OneDrive";
+
                     break;
                 case "Desktop":
-                    _folderBrowserDialog = @"C:\Users\" + System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\Desktop";
+                    _folderBrowserDialog = @"C:\Users\" + WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\Desktop";
+
                     break;
                 case "Documents":
-                    _folderBrowserDialog = @"C:\Users\" + System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\Documents";
+                    _folderBrowserDialog = @"C:\Users\" + WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\Documents";
+
                     break;
                 case "Pictures":
-                    _folderBrowserDialog = @"C:\Users\" + System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\Pictures";
+                    _folderBrowserDialog = @"C:\Users\" + WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\Pictures";
+
                     break;
                 case "Downloads":
-                    _folderBrowserDialog = @"C:\Users\" + System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\Downloads";
+                    _folderBrowserDialog = @"C:\Users\" + WindowsIdentity.GetCurrent().Name.Split(Convert.ToChar(@"\")).Last() + @"\Downloads";
+
                     break;
                 default:
                     _folderBrowserDialog = a;
@@ -160,7 +160,7 @@ namespace File_Manager
             if (e.KeyValue != 46) return;
 
             if (listView1.SelectedItems[0].Text == null) return;
-            
+
             foreach (var item in listView1.SelectedItems)
             {
                 var loc = listView1.SelectedItems[0].Index;
@@ -168,6 +168,56 @@ namespace File_Manager
                 if (_files != null) File.Delete(_files[loc]);
                 listView1.Items.RemoveAt(loc);
                 if (_files != null) _files.RemoveAt(loc);
+            }
+        }
+
+        private void contextMenu1_Popup(object sender, EventArgs e)
+        {
+            //throw new System.NotImplementedException();
+        }
+
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Right) return;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(_folderBrowserDialog + @"\untitled.txt"))
+            {
+                Add(1);
+            }
+            else
+            {
+                _files.Add("untitled.txt");
+                File.Create(_folderBrowserDialog + @"\untitled.txt");
+                listView1.SelectedItems.Clear();
+                imageList1.Images.Add(Icon.ExtractAssociatedIcon(_folderBrowserDialog + @"\untitled.txt") ?? throw new InvalidOperationException());
+                listView1.Items.Add("untitled.txt", imageList1.Images.Count - 1);
+            }
+
+        }
+
+        private void Add(int i)
+        {
+            while (true)
+            {
+                if (File.Exists(_folderBrowserDialog + @"\untitled " + i + ".txt"))
+                {
+                    i += 1;
+
+                    continue;
+                }
+                else
+                {
+                    _files.Add("untitled " + i + ".txt");
+                    File.Create(_folderBrowserDialog + @"\untitled " + i + ".txt");
+                    listView1.SelectedItems.Clear();
+                    imageList1.Images.Add(Icon.ExtractAssociatedIcon(_folderBrowserDialog + @"\untitled " + i + ".txt") ?? throw new InvalidOperationException());
+                    listView1.Items.Add("untitled " + i + ".txt", imageList1.Images.Count - 1);
+                }
+
+                break;
             }
         }
     }
