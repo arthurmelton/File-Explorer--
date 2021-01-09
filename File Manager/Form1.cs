@@ -43,6 +43,12 @@ namespace File_Manager
             //using (_folderBrowserDialog = new FolderBrowserDialog { Description = @"Select your path."})
             //if (_folderBrowserDialog.ShowDialog() != DialogResult.OK) return;
 
+            progressBar1.Visible = true;
+
+            listView1.BeginUpdate();
+            progressBar1.Refresh();
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetFiles(_folderBrowserDialog).Length;
 
             foreach (var item in GetFiles(_folderBrowserDialog))
             {
@@ -76,6 +82,7 @@ namespace File_Manager
                 var fileInfo = new FileInfo(item);
                 _files.Add(fileInfo.FullName);
                 listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
+                progressBar1.Value++;
             }
 
             foreach (var item in GetDirectories(_folderBrowserDialog))
@@ -111,7 +118,9 @@ namespace File_Manager
                 _files.Add(fileInfo.FullName);
                 listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
             }
+            listView1.EndUpdate();
             listView1.Sort();
+            progressBar1.Visible = false;
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -284,6 +293,7 @@ namespace File_Manager
         private void button3_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems[0].Text == null) return;
+
             var loc = _files[listView1.SelectedItems[0].Index];
             var split = listView1.SelectedItems[0].Name.Remove(listView1.SelectedItems[0].Name.Length - 1);
             while (split.EndsWith(@"\") == false) split = split.Remove(split.Length - 1);
