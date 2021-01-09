@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Windows.Forms;
 using static System.IO.Directory;
+using Microsoft.WindowsAPICodePack.Shell;
 
 namespace File_Manager
 {
@@ -35,8 +36,33 @@ namespace File_Manager
 
             foreach (var item in GetFiles(_folderBrowserDialog))
             {
-                
-                imageList1.Images.Add(Icon.ExtractAssociatedIcon(item) ?? throw new InvalidOperationException());
+                try
+                {
+                    using (var shellFile = ShellFile.FromFilePath(item))
+                    {
+
+                        using (var img = new Bitmap(shellFile.Thumbnail.ExtraLargeBitmap.Width, shellFile.Thumbnail.ExtraLargeBitmap.Height))
+                        {
+                            using (var g = Graphics.FromImage(img))
+                            {
+                                var bm = shellFile.Thumbnail.ExtraLargeBitmap;
+                                bm.MakeTransparent(Color.Black);
+                                g.DrawImage(bm, new Rectangle(0, 0, shellFile.Thumbnail.ExtraLargeBitmap.Size.Width, shellFile.Thumbnail.ExtraLargeBitmap.Size.Height));
+                                imageList1.Images.Add(img);
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    try
+                    {
+                        imageList1.Images.Add(Icon.ExtractAssociatedIcon(item) ?? throw new InvalidOperationException());
+                    }
+                    catch
+                    {
+                    }
+                }
                 var fileInfo = new FileInfo(item);
                 _files.Add(fileInfo.FullName);
                 listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
@@ -44,7 +70,33 @@ namespace File_Manager
 
             foreach (var item in GetDirectories(_folderBrowserDialog))
             {
-                imageList1.Images.Add(imageList2.Images[6]);
+                try
+                {
+                    using (var shellFile = ShellFile.FromFilePath(item))
+                    {
+
+                        using (var img = new Bitmap(shellFile.Thumbnail.ExtraLargeBitmap.Width, shellFile.Thumbnail.ExtraLargeBitmap.Height))
+                        {
+                            using (var g = Graphics.FromImage(img))
+                            {
+                                var bm = shellFile.Thumbnail.ExtraLargeBitmap;
+                                bm.MakeTransparent(Color.Black);
+                                g.DrawImage(bm, new Rectangle(0, 0, shellFile.Thumbnail.ExtraLargeBitmap.Width, shellFile.Thumbnail.ExtraLargeBitmap.Height));
+                                imageList1.Images.Add(img);
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    try
+                    {
+                        imageList1.Images.Add(imageList2.Images[6] ?? throw new InvalidOperationException());
+                    }
+                    catch
+                    {
+                    }
+                }
                 var fileInfo = new FileInfo(item);
                 _files.Add(fileInfo.FullName);
                 listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
