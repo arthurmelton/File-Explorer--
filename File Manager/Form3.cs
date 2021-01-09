@@ -67,6 +67,31 @@ namespace File_Manager
             }
             treeView1.Nodes[treeView1.Nodes.Count - 1].EnsureVisible();
         }
+        
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
+
+        private void FormMain_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
+
+        private void FormMain_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(dif));
+            }
+        }
+
+        private void FormMain_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
 
         private const int cGrip = 16; // Grip size
 
@@ -79,11 +104,12 @@ namespace File_Manager
             rc = new Rectangle(0, 0, ClientSize.Width, cCaption);
             e.Graphics.FillRectangle(Brushes.DarkBlue, rc);
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
-            frm1.ChangeSize(this.panel1.Size.Height, this.panel1.Size.Width);
+            frm1.ChangeSize(panel1.Size.Height, panel1.Size.Width);
         }
 
         protected override void WndProc(ref Message m)
         {
+
             if (m.Msg == 0x84)
             {
                 // Trap WM_NCHITTEST
@@ -140,6 +166,16 @@ namespace File_Manager
             if (listBox == "This PC" || listBox == "Quick Access") return;
 
             frm1.ChangeDirectory(listBox);
+        }
+
+        private void panel3_MouseDown(object sender, MouseEventArgs e)
+        {
+            //this.PointToScreen()
+        }
+
+        private void th(object sender, MouseEventArgs e)
+        {
+            //this.PointToScreen()
         }
     }
 }

@@ -87,7 +87,9 @@ namespace File_Manager
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1050, 37);
             this.panel3.TabIndex = 1;
-            //this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.OnPaint());
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseDown);
+            this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseMove);
+            this.panel3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseUp);
             // 
             // button3
             // 
@@ -154,6 +156,7 @@ namespace File_Manager
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 35);
             this.label1.TabIndex = 0;
+            this.label1.Text = "File Explorer++";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.UseMnemonic = false;
             // 
@@ -221,7 +224,7 @@ namespace File_Manager
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {treeNode5, treeNode6});
             this.treeView1.ShowLines = false;
             this.treeView1.ShowPlusMinus = false;
-            this.treeView1.Size = new System.Drawing.Size(206, 675);
+            this.treeView1.Size = new System.Drawing.Size(206, 712);
             this.treeView1.TabIndex = 8;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
