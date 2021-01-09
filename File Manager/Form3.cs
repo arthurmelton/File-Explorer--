@@ -25,6 +25,7 @@ namespace File_Manager
         {
             InitializeComponent();
             DoubleBuffered = true;
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
             SetStyle(ControlStyles.ResizeRedraw, true);
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
             _frm1 = new Form1 {TopLevel = false, Visible = true};
@@ -65,9 +66,11 @@ namespace File_Manager
             }
             treeView1.Nodes[treeView1.Nodes.Count - 1].EnsureVisible();
         }
-        
+
         private bool _dragging;
+
         private Point _dragCursorPoint;
+
         private Point _dragFormPoint;
 
         private void FormMain_MouseDown(object sender, MouseEventArgs e)
@@ -81,7 +84,7 @@ namespace File_Manager
         {
             if (_dragging)
             {
-                Point dif = Point.Subtract(Cursor.Position, new Size(_dragCursorPoint));
+                var dif = Point.Subtract(Cursor.Position, new Size(_dragCursorPoint));
                 Location = Point.Add(_dragFormPoint, new Size(dif));
             }
         }
@@ -91,43 +94,62 @@ namespace File_Manager
             _dragging = false;
         }
 
-        private const int CGrip = 16; // Grip size
-
-        private const int CCaption = 32; // Caption bar height;
-
-        protected override void OnPaint(PaintEventArgs e)
+        protected override void OnPaint(PaintEventArgs e) // you can safely omit this method if you want
         {
-            var rc = new Rectangle(ClientSize.Width - CGrip, ClientSize.Height - CGrip, CGrip, CGrip);
-            ControlPaint.DrawSizeGrip(e.Graphics, BackColor, rc);
-            rc = new Rectangle(0, 0, ClientSize.Width, CCaption);
-            e.Graphics.FillRectangle(Brushes.DarkBlue, rc);
+            e.Graphics.FillRectangle(Brushes.Green, Left);
+            e.Graphics.FillRectangle(Brushes.Green, Right);
+            e.Graphics.FillRectangle(Brushes.Green, Bottom);
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
             _frm1.ChangeSize(panel1.Size.Height, panel1.Size.Width);
         }
 
-        protected override void WndProc(ref Message m)
+        private const int
+            HTLEFT = 10,
+            HTRIGHT = 11,
+            HTTOP = 12,
+            HTTOPLEFT = 13,
+            HTTOPRIGHT = 14,
+            HTBOTTOM = 15,
+            HTBOTTOMLEFT = 16,
+            HTBOTTOMRIGHT = 17;
+
+        private const int _ = 10; // you can rename this variable if you like
+
+        private Rectangle Top => new Rectangle(0, 0, ClientSize.Width, _);
+
+        private Rectangle Left => new Rectangle(0, 0, _, ClientSize.Height);
+
+        private Rectangle Bottom => new Rectangle(0, ClientSize.Height - _, ClientSize.Width, _);
+
+        private Rectangle Right => new Rectangle(ClientSize.Width - _, 0, _, ClientSize.Height);
+
+        private Rectangle TopLeft => new Rectangle(0, 0, _, _);
+
+        private Rectangle TopRight => new Rectangle(ClientSize.Width - _, 0, _, _);
+
+        private Rectangle BottomLeft => new Rectangle(0, ClientSize.Height - _, _, _);
+
+        private Rectangle BottomRight => new Rectangle(ClientSize.Width - _, ClientSize.Height - _, _, _);
+
+
+        protected override void WndProc(ref Message message)
         {
+            base.WndProc(ref message);
 
-            if (m.Msg == 0x84)
+            if (message.Msg == 0x84) // WM_NCHITTEST
             {
-                // Trap WM_NCHITTEST
-                var pos = new Point(m.LParam.ToInt32());
-                pos = PointToClient(pos);
-                if (pos.Y < CCaption)
-                {
-                    m.Result = (IntPtr) 2; // HTCAPTION
+                var cursor = PointToClient(Cursor.Position);
 
-                    return;
-                }
-                if (pos.X >= ClientSize.Width - CGrip && pos.Y >= ClientSize.Height - CGrip)
-                {
-                    m.Result = (IntPtr) 17; // HTBOTTOMRIGHT
+                if (TopLeft.Contains(cursor)) message.Result = (IntPtr) HTTOPLEFT;
+                else if (TopRight.Contains(cursor)) message.Result = (IntPtr) HTTOPRIGHT;
+                else if (BottomLeft.Contains(cursor)) message.Result = (IntPtr) HTBOTTOMLEFT;
+                else if (BottomRight.Contains(cursor)) message.Result = (IntPtr) HTBOTTOMRIGHT;
 
-                    return;
-                }
-                Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
+                else if (Top.Contains(cursor)) message.Result = (IntPtr) HTTOP;
+                else if (Left.Contains(cursor)) message.Result = (IntPtr) HTLEFT;
+                else if (Right.Contains(cursor)) message.Result = (IntPtr) HTRIGHT;
+                else if (Bottom.Contains(cursor)) message.Result = (IntPtr) HTBOTTOM;
             }
-            base.WndProc(ref m);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -148,7 +170,6 @@ namespace File_Manager
 
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-
         }
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)

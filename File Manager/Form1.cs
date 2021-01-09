@@ -35,6 +35,7 @@ namespace File_Manager
 
             foreach (var item in GetFiles(_folderBrowserDialog))
             {
+                
                 imageList1.Images.Add(Icon.ExtractAssociatedIcon(item) ?? throw new InvalidOperationException());
                 var fileInfo = new FileInfo(item);
                 _files.Add(fileInfo.FullName);

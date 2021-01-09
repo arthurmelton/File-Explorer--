@@ -63,7 +63,7 @@ namespace File_Manager
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(204, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(792, 641);
+            this.panel1.Size = new System.Drawing.Size(792, 629);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -211,14 +211,14 @@ namespace File_Manager
             treeNode5.ForeColor = System.Drawing.SystemColors.WindowText;
             treeNode5.ImageIndex = 8;
             treeNode5.Name = "Quick Access";
-            treeNode5.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            treeNode5.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             treeNode5.SelectedImageIndex = 8;
             treeNode5.Text = "Quick Access";
             treeNode6.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (206)))), ((int) (((byte) (217)))), ((int) (((byte) (230)))));
             treeNode6.ForeColor = System.Drawing.SystemColors.WindowText;
             treeNode6.ImageIndex = 7;
             treeNode6.Name = "This PC";
-            treeNode6.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            treeNode6.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             treeNode6.SelectedImageIndex = 7;
             treeNode6.Text = "This PC";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {treeNode5, treeNode6});
