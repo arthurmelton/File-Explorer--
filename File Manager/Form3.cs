@@ -105,26 +105,26 @@ namespace File_Manager
         }
 
         private const int
-            HTLEFT = 10,
-            HTRIGHT = 11,
-            HTTOP = 12,
-            HTTOPLEFT = 13,
-            HTTOPRIGHT = 14,
-            HTBOTTOM = 15,
-            HTBOTTOMLEFT = 16,
-            HTBOTTOMRIGHT = 17;
+            HtLeft = 10,
+            HtRight = 11,
+            HtTop = 12,
+            HtTopLeft = 13,
+            HtTopRight = 14,
+            HtBottom = 15,
+            HtBottomLeft = 16,
+            HtBottomRight = 17;
 
         private const int _ = 10; // you can rename this variable if you like
 
-        private Rectangle Top => new Rectangle(0, 0, ClientSize.Width, _);
+        private new Rectangle Top => new Rectangle(0, 0, ClientSize.Width, _);
 
-        private Rectangle Left => new Rectangle(0, 0, _, ClientSize.Height);
+        private new Rectangle Left => new Rectangle(0, 0, _, ClientSize.Height);
 
-        private Rectangle Bottom => new Rectangle(0, ClientSize.Height - _, ClientSize.Width, _);
+        private new Rectangle Bottom => new Rectangle(0, ClientSize.Height - _, ClientSize.Width, _);
 
-        private Rectangle Right => new Rectangle(ClientSize.Width - _, 0, _, ClientSize.Height);
+        private new Rectangle Right => new Rectangle(ClientSize.Width - _, 0, _, ClientSize.Height);
 
-        private Rectangle TopLeft => new Rectangle(0, 0, _, _);
+        private static Rectangle TopLeft => new Rectangle(0, 0, _, _);
 
         private Rectangle TopRight => new Rectangle(ClientSize.Width - _, 0, _, _);
 
@@ -141,15 +141,15 @@ namespace File_Manager
             {
                 var cursor = PointToClient(Cursor.Position);
 
-                if (TopLeft.Contains(cursor)) message.Result = (IntPtr) HTTOPLEFT;
-                else if (TopRight.Contains(cursor)) message.Result = (IntPtr) HTTOPRIGHT;
-                else if (BottomLeft.Contains(cursor)) message.Result = (IntPtr) HTBOTTOMLEFT;
-                else if (BottomRight.Contains(cursor)) message.Result = (IntPtr) HTBOTTOMRIGHT;
+                if (TopLeft.Contains(cursor)) message.Result = (IntPtr) HtTopLeft;
+                else if (TopRight.Contains(cursor)) message.Result = (IntPtr) HtTopRight;
+                else if (BottomLeft.Contains(cursor)) message.Result = (IntPtr) HtBottomLeft;
+                else if (BottomRight.Contains(cursor)) message.Result = (IntPtr) HtBottomRight;
 
-                else if (Top.Contains(cursor)) message.Result = (IntPtr) HTTOP;
-                else if (Left.Contains(cursor)) message.Result = (IntPtr) HTLEFT;
-                else if (Right.Contains(cursor)) message.Result = (IntPtr) HTRIGHT;
-                else if (Bottom.Contains(cursor)) message.Result = (IntPtr) HTBOTTOM;
+                else if (Top.Contains(cursor)) message.Result = (IntPtr) HtTop;
+                else if (Left.Contains(cursor)) message.Result = (IntPtr) HtLeft;
+                else if (Right.Contains(cursor)) message.Result = (IntPtr) HtRight;
+                else if (Bottom.Contains(cursor)) message.Result = (IntPtr) HtBottom;
             }
         }
 

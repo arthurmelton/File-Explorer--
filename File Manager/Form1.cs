@@ -29,11 +29,11 @@ namespace File_Manager
 
         private void button1_Click()
         {
-            _thread = new Thread(threadThis);
+            _thread = new Thread(ThreadThis);
             _thread.Start();
         }
 
-        private void threadThis()
+        private void ThreadThis()
         {
             _files.Clear();
             listView1.Items.Clear();
@@ -77,6 +77,7 @@ namespace File_Manager
                     }
                     catch
                     {
+                        // ignored
                     }
                 }
                 var fileInfo = new FileInfo(item);
@@ -108,10 +109,11 @@ namespace File_Manager
                 {
                     try
                     {
-                        imageList1.Images.Add(imageList2.Images[6] ?? throw new InvalidOperationException());
+                        imageList1.Images.Add(imageList2.Images[6]);
                     }
                     catch
                     {
+                        // ignored
                     }
                 }
                 var fileInfo = new FileInfo(item);
@@ -239,7 +241,7 @@ namespace File_Manager
 
                 if (_files != null) File.Delete(_files[loc]);
                 listView1.Items.RemoveAt(loc);
-                if (_files != null) _files.RemoveAt(loc);
+                _files?.RemoveAt(loc);
             }
         }
 
