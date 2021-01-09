@@ -144,7 +144,8 @@ namespace File_Manager
 
         private void button2_Click(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Maximized;
+            WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
         }
 
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
