@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/File Manager/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.Designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/Form1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form3.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.resx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,11 +29,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/80/66a9c4f2/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3B28F550-0D54-4E01-9E30-DCA09FAB36D7/12/14521e73/Control.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/04/28967366/Icon.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/93/05abb96f/__Error.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/db/48d2da4d/RuntimeConstructorInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Immediate Window" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -43,8 +40,8 @@
       <option value="$PROJECT_DIR$/File Manager/Form2.cs" />
       <option value="$PROJECT_DIR$/File Manager/Program.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form3.Designer.cs" />
-      <option value="$PROJECT_DIR$/File Manager/Form3.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form1.Designer.cs" />
+      <option value="$PROJECT_DIR$/File Manager/Form3.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form1.cs" />
     </changedPaths>
   </component>
@@ -105,14 +102,8 @@
       <workItem from="1610110684668" duration="6308000" />
       <workItem from="1610119863353" duration="10796000" />
       <workItem from="1610198290656" duration="25790000" />
-      <workItem from="1610281852277" duration="1181000" />
-    </task>
-    <task id="LOCAL-00001" summary="auto made">
-      <created>1609977777139</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1609977777139</updated>
+      <workItem from="1610281852277" duration="2363000" />
+      <workItem from="1610286722543" duration="1552000" />
     </task>
     <task id="LOCAL-00002" summary="auto made">
       <created>1609977790825</created>
@@ -443,7 +434,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610237050444</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="1st step of adding search">
+      <created>1610283160846</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1610283160847</updated>
+    </task>
+    <task id="LOCAL-00050" summary="auto made">
+      <created>1610283170358</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1610283170359</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,7 +471,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="made with ui" />
     <MESSAGE value="Folder icon" />
     <MESSAGE value="Made it work and made it look nicer" />
     <MESSAGE value="made it so that when you are not focused it looks better" />
@@ -490,6 +494,7 @@
     <MESSAGE value="1st step of adding a progress bar" />
     <MESSAGE value="cleaned code" />
     <MESSAGE value="looks a little better" />
+    <MESSAGE value="1st step of adding search" />
     <MESSAGE value="auto made" />
     <option name="LAST_COMMIT_MESSAGE" value="auto made" />
   </component>
