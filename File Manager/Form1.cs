@@ -384,5 +384,60 @@ namespace File_Manager
             if (_dir[0] != null) GetAllFiles(_dir[0]);
             
         }
+
+        private void listView1_DragDrop(object sender, DragEventArgs e)
+        {
+            if (!(e.Data.GetData(DataFormats.FileDrop) is string[] files) || !files.Any()) return;
+
+            foreach (var file in files)
+            {
+                string i;
+                if (_folderBrowserDialog.EndsWith(@"\"))
+                {
+                    i = _folderBrowserDialog + file.Split(Convert.ToChar(@"\")).Last();
+                }
+                else
+                {
+                    i = _folderBrowserDialog + @"\" + file.Split(Convert.ToChar(@"\")).Last();
+                }
+                File.Move(file, i);
+                try
+                {
+                    using (var shellFile = ShellFile.FromFilePath(file))
+                    {
+
+                        using (var img = new Bitmap(shellFile.Thumbnail.ExtraLargeBitmap.Width, shellFile.Thumbnail.ExtraLargeBitmap.Height))
+                        {
+                            using (var g = Graphics.FromImage(img))
+                            {
+                                var bm = shellFile.Thumbnail.ExtraLargeBitmap;
+                                bm.MakeTransparent(Color.Black);
+                                g.DrawImage(bm, new Rectangle(0, 0, shellFile.Thumbnail.ExtraLargeBitmap.Size.Width, shellFile.Thumbnail.ExtraLargeBitmap.Size.Height));
+                                imageList1.Images.Add(img);
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    try
+                    {
+                        imageList1.Images.Add(Icon.ExtractAssociatedIcon(file) ?? throw new InvalidOperationException());
+                    }
+                    catch
+                    {
+                        // ignored
+                    }
+                }
+                var fileInfo = new FileInfo(file);
+                _files.Add(fileInfo.FullName);
+                listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
+            }
+        }
+
+        private void listView1_DragOver(object sender, DragEventArgs e)
+        {
+            e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Link : DragDropEffects.None;
+        }
     }
 }
