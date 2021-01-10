@@ -15,7 +15,7 @@ namespace File_Manager
     public partial class Form1 : Form
     {
 
-        private readonly List<string> _files = new List<string>();
+        private static readonly List<string> _files = new List<string>();
 
         private string _folderBrowserDialog;
 
@@ -31,24 +31,21 @@ namespace File_Manager
         {
             _thread = new Thread(ThreadThis);
             _thread.Start();
-        }
-
-        private void ThreadThis()
-        {
             _files.Clear();
             listView1.Items.Clear();
             imageList1.Images.Clear();
             textBox1.Text = _folderBrowserDialog;
             if (!textBox1.Focused) textBox1.Text = textBox1.Text.Replace(@"\", " > ");
-            //using (_folderBrowserDialog = new FolderBrowserDialog { Description = @"Select your path."})
-            //if (_folderBrowserDialog.ShowDialog() != DialogResult.OK) return;
-
-            progressBar1.Visible = true;
-
             listView1.BeginUpdate();
             progressBar1.Refresh();
             progressBar1.Value = 0;
             progressBar1.Maximum = GetFiles(_folderBrowserDialog).Length;
+            progressBar1.Visible = true;
+            progressBar1.Maximum = GetFiles(_folderBrowserDialog).Length;
+        }
+
+        private void ThreadThis()
+        {
 
             foreach (var item in GetFiles(_folderBrowserDialog))
             {
@@ -123,6 +120,12 @@ namespace File_Manager
             listView1.EndUpdate();
             listView1.Sort();
             progressBar1.Visible = false;
+        }
+
+        private void RunAtTheBegining(string name)
+        {
+            listView1.Items.Add(name, imageList1.Images.Count - 1);
+            progressBar1.Value++;
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -306,6 +309,80 @@ namespace File_Manager
         {
             Width = w;
             Height = h;
+        }
+
+        private static List<string> _dir;
+        private static string _text;
+        private static ImageList _imageList;
+        private static ListView listView;
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 13) return;
+
+            _text = textBox2.Text;
+            _imageList = imageList1;
+            listView = listView1;
+            _dir = null;
+            
+            var thread1 = new Thread(() => GetAllSubDir(_folderBrowserDialog));
+            thread1.Start();
+            thread1.Join();
+            var thread2= new Thread(() => GetAllFiles(_dir[0]));
+            thread2.Start();
+            thread2.Join();
+        }
+
+        private static void GetAllSubDir(string e)
+        {
+            foreach (var directory in GetDirectories(e))
+            {
+                _dir.Add(directory);
+                GetAllSubDir(directory);
+            }
+        }
+
+        private static void GetAllFiles(string e)
+        {
+            foreach (var file in GetFiles(e))
+            {
+                if (!_text.Contains(file)) continue;
+
+                try
+                {
+                    using (var shellFile = ShellFile.FromFilePath(file))
+                    {
+
+                        using (var img = new Bitmap(shellFile.Thumbnail.ExtraLargeBitmap.Width, shellFile.Thumbnail.ExtraLargeBitmap.Height))
+                        {
+                            using (var g = Graphics.FromImage(img))
+                            {
+                                var bm = shellFile.Thumbnail.ExtraLargeBitmap;
+                                bm.MakeTransparent(Color.Black);
+                                g.DrawImage(bm, new Rectangle(0, 0, shellFile.Thumbnail.ExtraLargeBitmap.Size.Width, shellFile.Thumbnail.ExtraLargeBitmap.Size.Height));
+                                _imageList.Images.Add(img);
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    try
+                    {
+                        _imageList.Images.Add(Icon.ExtractAssociatedIcon(file) ?? throw new InvalidOperationException());
+                    }
+                    catch
+                    {
+                        // ignored
+                    }
+                }
+                var fileInfo = new FileInfo(file);
+                _files.Add(fileInfo.FullName);
+                listView.Items.Add(fileInfo.Name, _imageList.Images.Count - 1);
+            }
+            _dir.RemoveAt(0);
+            if (_dir[0] != null) GetAllFiles(_dir[0]);
+            
         }
     }
 }
