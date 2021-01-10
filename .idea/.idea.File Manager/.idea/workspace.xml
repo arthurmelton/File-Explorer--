@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7538331d-e3db-4c20-beae-78ba24372d56" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/File Manager.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/File Manager.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Form3.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.Designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/Form3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/packages.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Form3.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.resx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,13 +18,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Projects/File Manager/File Manager/Form3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Projects/File Manager/File Manager/Form3.Designer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Projects/File Manager/File Manager/Form3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/04/28967366/Icon.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/93/05abb96f/__Error.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/db/48d2da4d/RuntimeConstructorInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Projects/File Manager/File Manager/Form3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -66,7 +73,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="discord-project" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor.code.editing" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -107,7 +114,7 @@
       <workItem from="1610068502685" duration="869000" />
       <workItem from="1610110684668" duration="6308000" />
       <workItem from="1610119863353" duration="10796000" />
-      <workItem from="1610198290656" duration="13825000" />
+      <workItem from="1610198290656" duration="21863000" />
     </task>
     <task id="LOCAL-00001" summary="auto made">
       <created>1609977777139</created>
@@ -417,7 +424,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610225089741</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="cleaned code">
+      <created>1610225420305</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1610225420305</updated>
+    </task>
+    <task id="LOCAL-00046" summary="auto made">
+      <created>1610225427247</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1610225427247</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,12 +480,12 @@
     <MESSAGE value="1st version of resize" />
     <MESSAGE value="Can move now" />
     <MESSAGE value="Can fullscreen now" />
-    <MESSAGE value="auto made" />
-    <MESSAGE value="cleaned code" />
     <MESSAGE value="better resize" />
     <MESSAGE value="better resolution" />
     <MESSAGE value="1st step of threading" />
     <MESSAGE value="1st step of adding a progress bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="1st step of adding a progress bar" />
+    <MESSAGE value="cleaned code" />
+    <MESSAGE value="auto made" />
+    <option name="LAST_COMMIT_MESSAGE" value="auto made" />
   </component>
 </project>
