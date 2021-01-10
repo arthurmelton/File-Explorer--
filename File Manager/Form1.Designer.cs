@@ -68,9 +68,11 @@ namespace File_Manager
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.listView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.listView1_DragDrop);
             this.listView1.DragOver += new System.Windows.Forms.DragEventHandler(this.listView1_DragOver);
+            this.listView1.DragLeave += new System.EventHandler(this.listView1_DragLeave);
             this.listView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listView1_KeyDown);
             this.listView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listView1_KeyPress);
             this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
+            this.listView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDown);
             // 
             // textBox1
             // 

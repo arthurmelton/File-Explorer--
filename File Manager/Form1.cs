@@ -312,8 +312,11 @@ namespace File_Manager
         }
 
         private static List<string> _dir;
+
         private static string _text;
+
         private static ImageList _imageList;
+
         private static ListView listView;
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
@@ -324,11 +327,11 @@ namespace File_Manager
             _imageList = imageList1;
             listView = listView1;
             _dir = null;
-            
+
             var thread1 = new Thread(() => GetAllSubDir(_folderBrowserDialog));
             thread1.Start();
             thread1.Join();
-            var thread2= new Thread(() => GetAllFiles(_dir[0]));
+            var thread2 = new Thread(() => GetAllFiles(_dir[0]));
             thread2.Start();
             thread2.Join();
         }
@@ -382,7 +385,7 @@ namespace File_Manager
             }
             _dir.RemoveAt(0);
             if (_dir[0] != null) GetAllFiles(_dir[0]);
-            
+
         }
 
         private void listView1_DragDrop(object sender, DragEventArgs e)
@@ -438,6 +441,16 @@ namespace File_Manager
         private void listView1_DragOver(object sender, DragEventArgs e)
         {
             e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Link : DragDropEffects.None;
+        }
+
+        private void listView1_DragLeave(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void listView1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (listView1.SelectedItems.Count != 0) this.listView1.DoDragDrop(new DataObject(DataFormats.FileDrop, listView1.SelectedItems), DragDropEffects.Copy);
         }
     }
 }
