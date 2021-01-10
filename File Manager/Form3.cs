@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -66,6 +67,7 @@ namespace File_Manager
                 //edit.ImageIndex = 1;
             }
             treeView1.Nodes[treeView1.Nodes.Count - 1].EnsureVisible();
+            treeView1.DrawMode = TreeViewDrawMode.OwnerDrawText;
         }
 
         private bool _dragging;
@@ -180,7 +182,10 @@ namespace File_Manager
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+
             if (treeView1.SelectedNode == null) return;
+            //var node = treeView1.SelectedNode;
+            //node.BackColor = Color.White;
 
             var listBox = treeView1.SelectedNode.Name;
 
@@ -189,5 +194,26 @@ namespace File_Manager
             _frm1.ChangeDirectory(listBox);
         }
 
+        private void treeView1_Click(object sender, EventArgs e)
+        {
+            //var node = treeView1.SelectedNode;
+            //if (node != null) node.BackColor = Color.White;
+        }
+
+        private void treeView1_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            var i = e.Bounds;
+            i.Width = 1000;
+            i.X = -100;
+            if (e.Node.IsSelected)
+            {
+                if (treeView1.Focused)
+                    e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(233, 236, 244)), i);
+            }
+            else
+                e.Graphics.FillRectangle(Brushes.Transparent, i);
+
+            TextRenderer.DrawText(e.Graphics,    e.Node.Text,  e.Node.TreeView.Font,  e.Node.Bounds,  e.Node.ForeColor);
+        }
     }
 }
