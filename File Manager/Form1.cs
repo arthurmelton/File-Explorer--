@@ -21,6 +21,8 @@ namespace File_Manager
 
         private Thread _thread;
 
+        public const bool QualityNotQuantity = true;
+
         public Form1(Thread thread)
         {
             _thread = thread;
@@ -49,39 +51,7 @@ namespace File_Manager
 
             foreach (var item in GetFiles(_folderBrowserDialog))
             {
-                try
-                {
-                    using (var shellFile = ShellFile.FromFilePath(item))
-                    {
-
-                        using (var img = new Bitmap(shellFile.Thumbnail.ExtraLargeBitmap.Width, shellFile.Thumbnail.ExtraLargeBitmap.Height))
-                        {
-                            using (var g = Graphics.FromImage(img))
-                            {
-                                var bm = shellFile.Thumbnail.ExtraLargeBitmap;
-                                bm.MakeTransparent(Color.Black);
-                                g.DrawImage(bm, new Rectangle(0, 0, shellFile.Thumbnail.ExtraLargeBitmap.Size.Width, shellFile.Thumbnail.ExtraLargeBitmap.Size.Height));
-                                imageList1.Images.Add(img);
-                            }
-                        }
-                    }
-                }
-                catch
-                {
-                    try
-                    {
-                        imageList1.Images.Add(Icon.ExtractAssociatedIcon(item) ?? throw new InvalidOperationException());
-                    }
-                    catch
-                    {
-                        // ignored
-                    }
-                }
-                var fileInfo = new FileInfo(item);
-                _files.Add(fileInfo.FullName);
-                var _item = listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
-                _item.Tag = fileInfo.FullName;
-                progressBar1.Value++;
+                AddItem(item);
             }
 
             foreach (var item in GetDirectories(_folderBrowserDialog))
@@ -121,6 +91,50 @@ namespace File_Manager
             listView1.EndUpdate();
             listView1.Sort();
             progressBar1.Visible = false;
+        }
+
+        public void AddItem(string item)
+        {
+            if (QualityNotQuantity)
+            {
+                try
+                {
+                    using (var shellFile = ShellFile.FromFilePath(item))
+                    {
+
+                        using (var img = new Bitmap(shellFile.Thumbnail.ExtraLargeBitmap.Width, shellFile.Thumbnail.ExtraLargeBitmap.Height))
+                        {
+                            using (var g = Graphics.FromImage(img))
+                            {
+                                var bm = shellFile.Thumbnail.ExtraLargeBitmap;
+                                bm.MakeTransparent(Color.Black);
+                                g.DrawImage(bm, new Rectangle(0, 0, shellFile.Thumbnail.ExtraLargeBitmap.Width, shellFile.Thumbnail.ExtraLargeBitmap.Height));
+                                imageList1.Images.Add(img);
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    try
+                    {
+                        imageList1.Images.Add(Icon.ExtractAssociatedIcon(item) ?? throw new InvalidOperationException());
+                    }
+                    catch
+                    {
+                        imageList1.Images.Add(imageList2.Images[6]);
+                    }
+                }
+            }
+            else
+            {
+                imageList1.Images.Add(Icon.ExtractAssociatedIcon(item) ?? throw new InvalidOperationException());
+            }
+            var fileInfo = new FileInfo(item);
+            _files.Add(fileInfo.FullName);
+            var _item = listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
+            _item.Tag = fileInfo.FullName;
+            progressBar1.Value++;
         }
 
         private void RunAtTheBegining(string name)
@@ -405,37 +419,7 @@ namespace File_Manager
                     i = _folderBrowserDialog + @"\" + file.Split(Convert.ToChar(@"\")).Last();
                 }
                 File.Move(file, i);
-                try
-                {
-                    using (var shellFile = ShellFile.FromFilePath(i))
-                    {
-
-                        using (var img = new Bitmap(shellFile.Thumbnail.ExtraLargeBitmap.Width, shellFile.Thumbnail.ExtraLargeBitmap.Height))
-                        {
-                            using (var g = Graphics.FromImage(img))
-                            {
-                                var bm = shellFile.Thumbnail.ExtraLargeBitmap;
-                                bm.MakeTransparent(Color.Black);
-                                g.DrawImage(bm, new Rectangle(0, 0, shellFile.Thumbnail.ExtraLargeBitmap.Size.Width, shellFile.Thumbnail.ExtraLargeBitmap.Size.Height));
-                                imageList1.Images.Add(img);
-                            }
-                        }
-                    }
-                }
-                catch
-                {
-                    try
-                    {
-                        imageList1.Images.Add(Icon.ExtractAssociatedIcon(file) ?? throw new InvalidOperationException());
-                    }
-                    catch
-                    {
-                        // ignored
-                    }
-                }
-                var fileInfo = new FileInfo(file);
-                _files.Add(fileInfo.FullName);
-                listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
+                AddItem(i);
             }
         }
 
@@ -456,7 +440,7 @@ namespace File_Manager
             var files = new string[listView1.SelectedItems.Count];
             for (var i = 0; i < listView1.SelectedItems.Count; i++)
             {
-                files[i] = listView1.SelectedItems[i].Tag.ToString();
+                files[i] = _files[listView1.SelectedItems[i].Index];
             }
             DoDragDrop(new DataObject(DataFormats.FileDrop, files), DragDropEffects.Copy);
         }
