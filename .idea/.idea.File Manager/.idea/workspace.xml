@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7538331d-e3db-4c20-beae-78ba24372d56" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.resx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,11 +24,15 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/80/66a9c4f2/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3B28F550-0D54-4E01-9E30-DCA09FAB36D7/12/14521e73/Control.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/04/28967366/Icon.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/93/05abb96f/__Error.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/db/48d2da4d/RuntimeConstructorInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -105,28 +107,7 @@
       <workItem from="1610198290656" duration="25790000" />
       <workItem from="1610281852277" duration="2363000" />
       <workItem from="1610286722543" duration="4354000" />
-      <workItem from="1610716997479" duration="8138000" />
-    </task>
-    <task id="LOCAL-00006" summary="auto made">
-      <created>1610026115038</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1610026115038</updated>
-    </task>
-    <task id="LOCAL-00007" summary="made it so that it will be rounded and show the first form">
-      <created>1610026157874</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1610026157874</updated>
-    </task>
-    <task id="LOCAL-00008" summary="made it so that it can go into subfolders from it">
-      <created>1610026224506</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1610026224506</updated>
+      <workItem from="1610716997479" duration="13485000" />
     </task>
     <task id="LOCAL-00009" summary="made with ui">
       <created>1610026235801</created>
@@ -450,7 +431,28 @@
       <option name="project" value="LOCAL" />
       <updated>1610718056648</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="drag files out">
+      <created>1610728971004</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1610728971004</updated>
+    </task>
+    <task id="LOCAL-00056" summary="auto made">
+      <created>1610728978296</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1610728978296</updated>
+    </task>
+    <task id="LOCAL-00057" summary="less code space &amp; switch between Fast or Quality images">
+      <created>1610738461004</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1610738461004</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,8 +475,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="added button so that you can go up" />
-    <MESSAGE value="added buttons to change directory and to quit, minimize, or maximize" />
     <MESSAGE value="Fixed an error" />
     <MESSAGE value="step 1 of deleting items" />
     <MESSAGE value="step 1 of quick access and this pc" />
@@ -495,9 +495,11 @@
     <MESSAGE value="looks a little better" />
     <MESSAGE value="1st step of adding search" />
     <MESSAGE value="can drag and drop files to move them" />
-    <MESSAGE value="auto made" />
     <MESSAGE value="1st step of dragging out" />
     <MESSAGE value="files can show the img of them self when dragged in" />
-    <option name="LAST_COMMIT_MESSAGE" value="files can show the img of them self when dragged in" />
+    <MESSAGE value="drag files out" />
+    <MESSAGE value="auto made" />
+    <MESSAGE value="less code space &amp; switch between Fast or Quality images" />
+    <option name="LAST_COMMIT_MESSAGE" value="less code space &amp; switch between Fast or Quality images" />
   </component>
 </project>
