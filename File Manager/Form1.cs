@@ -406,7 +406,7 @@ namespace File_Manager
                 File.Move(file, i);
                 try
                 {
-                    using (var shellFile = ShellFile.FromFilePath(file))
+                    using (var shellFile = ShellFile.FromFilePath(i))
                     {
 
                         using (var img = new Bitmap(shellFile.Thumbnail.ExtraLargeBitmap.Width, shellFile.Thumbnail.ExtraLargeBitmap.Height))
@@ -450,7 +450,7 @@ namespace File_Manager
 
         private void listView1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (listView1.SelectedItems.Count != 0) this.listView1.DoDragDrop(new DataObject(DataFormats.FileDrop, listView1.SelectedItems), DragDropEffects.Copy);
+            if (listView1.SelectedItems.Count != 0) listView1.DoDragDrop(new DataObject(DataFormats.FileDrop, listView1.SelectedItems), DragDropEffects.Copy);
         }
     }
 }
