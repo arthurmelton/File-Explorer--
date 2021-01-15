@@ -79,7 +79,8 @@ namespace File_Manager
                 }
                 var fileInfo = new FileInfo(item);
                 _files.Add(fileInfo.FullName);
-                listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
+                var _item = listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
+                _item.Tag = fileInfo.FullName;
                 progressBar1.Value++;
             }
 
@@ -450,7 +451,14 @@ namespace File_Manager
 
         private void listView1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (listView1.SelectedItems.Count != 0) listView1.DoDragDrop(new DataObject(DataFormats.FileDrop, listView1.SelectedItems), DragDropEffects.Copy);
+            if (listView1.SelectedItems.Count == 0) return;
+            if (_files == null) return;
+            var files = new string[listView1.SelectedItems.Count];
+            for (var i = 0; i < listView1.SelectedItems.Count; i++)
+            {
+                files[i] = listView1.SelectedItems[i].Tag.ToString();
+            }
+            DoDragDrop(new DataObject(DataFormats.FileDrop, files), DragDropEffects.Copy);
         }
     }
 }
