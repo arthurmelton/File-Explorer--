@@ -21,7 +21,7 @@ namespace File_Manager
 
         private Thread _thread;
 
-        public const bool QualityNotQuantity = true;
+        public static bool QualityNotQuantity = true;
 
         public Form1(Thread thread)
         {
@@ -443,6 +443,11 @@ namespace File_Manager
                 files[i] = _files[listView1.SelectedItems[i].Index];
             }
             DoDragDrop(new DataObject(DataFormats.FileDrop, files), DragDropEffects.Copy);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            QualityNotQuantity = !checkBox1.Checked;
         }
     }
 }
