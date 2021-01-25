@@ -271,5 +271,13 @@ namespace File_Manager
 
             TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Node.Bounds, e.Node.ForeColor);
         }
+
+        private void panel3_DoubleClick(object sender, EventArgs e)
+        {
+            WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
+            Settings.Default.max = WindowState.Equals(FormWindowState.Maximized);
+            Settings.Default.Save();
+        }
     }
 }
