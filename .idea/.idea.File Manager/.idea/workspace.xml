@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7538331d-e3db-4c20-beae-78ba24372d56" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/File Manager/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/File Manager/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/File Manager/v16/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/File Manager/v16/Server/sqlite3/storage.ide" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/File Manager/v16/Server/sqlite3/storage.ide-shm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/File Manager/v16/Server/sqlite3/storage.ide-wal" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/App.config" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/App.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.resx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/Form3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Form3.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.resx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/Properties/Settings.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Properties/Settings.Designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/Properties/Settings.settings" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Properties/Settings.settings" afterDir="false" />
     </list>
@@ -37,8 +32,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/80/66a9c4f2/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3B28F550-0D54-4E01-9E30-DCA09FAB36D7/12/14521e73/Control.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/14/40f2960e/SettingsBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/04/28967366/Icon.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/93/05abb96f/__Error.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/File Manager/File Manager/Form3.Designer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/db/48d2da4d/RuntimeConstructorInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">

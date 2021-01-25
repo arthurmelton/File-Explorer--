@@ -58,5 +58,17 @@ namespace File_Manager.Properties {
                 this["Pos"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool max {
+            get {
+                return ((bool)(this["max"]));
+            }
+            set {
+                this["max"] = value;
+            }
+        }
     }
 }

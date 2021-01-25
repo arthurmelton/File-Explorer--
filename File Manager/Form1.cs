@@ -17,7 +17,7 @@ namespace File_Manager
     public partial class Form1 : Form
     {
 
-        private static readonly List<string> _files = new List<string>();
+        private static readonly List<string> Files = new List<string>();
 
         private string _folderBrowserDialog;
 
@@ -33,7 +33,7 @@ namespace File_Manager
             {
                 //if ((bool) Settings.Default["QualityNotQuantity"]) return;
 
-                checkBox1.Checked = !(bool)Settings.Default.QualityNotQuantity;
+                checkBox1.Checked = !Settings.Default.QualityNotQuantity;
                 QualityNotQuantity = !checkBox1.Checked;
 
             }
@@ -48,7 +48,7 @@ namespace File_Manager
         {
             _thread = new Thread(ThreadThis);
             _thread.Start();
-            _files.Clear();
+            Files.Clear();
             listView1.Items.Clear();
             imageList1.Images.Clear();
             textBox1.Text = _folderBrowserDialog;
@@ -97,7 +97,7 @@ namespace File_Manager
                     }
                 }
                 var fileInfo = new FileInfo(item);
-                _files.Add(fileInfo.FullName);
+                Files.Add(fileInfo.FullName);
                 listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
             }
             listView1.EndUpdate();
@@ -138,15 +138,10 @@ namespace File_Manager
                 }
             else imageList1.Images.Add(Icon.ExtractAssociatedIcon(item) ?? throw new InvalidOperationException());
             var fileInfo = new FileInfo(item);
-            _files.Add(fileInfo.FullName);
+            Files.Add(fileInfo.FullName);
+            // ReSharper disable once InconsistentNaming
             var _item = listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
             _item.Tag = fileInfo.FullName;
-            progressBar1.Value++;
-        }
-
-        private void RunAtTheBegining(string name)
-        {
-            listView1.Items.Add(name, imageList1.Images.Count - 1);
             progressBar1.Value++;
         }
 
@@ -176,7 +171,7 @@ namespace File_Manager
                 var i = 0;
                 foreach (var unused in listView1.SelectedItems)
                 {
-                    if (_files != null) Process.Start(_files[listView1.SelectedItems[i].Index]);
+                    if (Files != null) Process.Start(Files[listView1.SelectedItems[i].Index]);
                     i++;
                 }
             }
@@ -264,9 +259,9 @@ namespace File_Manager
             {
                 var loc = listView1.SelectedItems[0].Index;
 
-                if (_files != null) File.Delete(_files[loc]);
+                if (Files != null) File.Delete(Files[loc]);
                 listView1.Items.RemoveAt(loc);
-                _files?.RemoveAt(loc);
+                Files?.RemoveAt(loc);
             }
         }
 
@@ -288,7 +283,7 @@ namespace File_Manager
             }
             else
             {
-                _files.Add("untitled.txt");
+                Files.Add("untitled.txt");
                 File.Create(_folderBrowserDialog + @"\untitled.txt");
                 listView1.SelectedItems.Clear();
                 imageList1.Images.Add(Icon.ExtractAssociatedIcon(_folderBrowserDialog + @"\untitled.txt") ?? throw new InvalidOperationException());
@@ -307,7 +302,7 @@ namespace File_Manager
 
                     continue;
                 }
-                _files.Add("untitled (" + i + ").txt");
+                Files.Add("untitled (" + i + ").txt");
                 File.Create(_folderBrowserDialog + @"\untitled (" + i + ").txt");
                 listView1.SelectedItems.Clear();
                 imageList1.Images.Add(Icon.ExtractAssociatedIcon(_folderBrowserDialog + @"\untitled (" + i + ").txt") ?? throw new InvalidOperationException());
@@ -321,7 +316,7 @@ namespace File_Manager
         {
             if (listView1.SelectedItems[0].Text == null) return;
 
-            var loc = _files[listView1.SelectedItems[0].Index];
+            var loc = Files[listView1.SelectedItems[0].Index];
             var split = listView1.SelectedItems[0].Name.Remove(listView1.SelectedItems[0].Name.Length - 1);
             while (split.EndsWith(@"\") == false) split = split.Remove(split.Length - 1);
             File.Move(loc, split + "tes.txt");
@@ -339,7 +334,7 @@ namespace File_Manager
 
         private static ImageList _imageList;
 
-        private static ListView listView;
+        private static ListView _listView;
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -347,7 +342,7 @@ namespace File_Manager
 
             _text = textBox2.Text;
             _imageList = imageList1;
-            listView = listView1;
+            _listView = listView1;
             _dir = null;
 
             var thread1 = new Thread(() => GetAllSubDir(_folderBrowserDialog));
@@ -402,8 +397,8 @@ namespace File_Manager
                     }
                 }
                 var fileInfo = new FileInfo(file);
-                _files.Add(fileInfo.FullName);
-                listView.Items.Add(fileInfo.Name, _imageList.Images.Count - 1);
+                Files.Add(fileInfo.FullName);
+                _listView.Items.Add(fileInfo.Name, _imageList.Images.Count - 1);
             }
             _dir.RemoveAt(0);
             if (_dir[0] != null) GetAllFiles(_dir[0]);
@@ -437,10 +432,10 @@ namespace File_Manager
         private void listView1_MouseDown(object sender, MouseEventArgs e)
         {
             if (listView1.SelectedItems.Count == 0) return;
-            if (_files == null) return;
+            if (Files == null) return;
 
             var files = new string[listView1.SelectedItems.Count];
-            for (var i = 0; i < listView1.SelectedItems.Count; i++) files[i] = _files[listView1.SelectedItems[i].Index];
+            for (var i = 0; i < listView1.SelectedItems.Count; i++) files[i] = Files[listView1.SelectedItems[i].Index];
             DoDragDrop(new DataObject(DataFormats.FileDrop, files), DragDropEffects.Copy);
         }
 

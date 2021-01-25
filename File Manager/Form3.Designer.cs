@@ -87,6 +87,7 @@ namespace File_Manager
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1046, 37);
             this.panel3.TabIndex = 1;
+            this.panel3.DoubleClick += new System.EventHandler(this.panel3_DoubleClick);
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseDown);
             this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseMove);
             this.panel3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseUp);

@@ -24,9 +24,7 @@ namespace File_Manager
 
         private readonly Form1 _frm1;
 
-        private readonly Size _size;
-
-        private readonly Point pos;
+        private readonly Point _pos;
 
         public Form3()
         {
@@ -76,8 +74,8 @@ namespace File_Manager
             treeView1.DrawMode = TreeViewDrawMode.OwnerDrawText;
             try
             {
-                _size = Settings.Default.Size;
-                Size = _size;
+                var size = Settings.Default.Size;
+                Size = size;
             }
             catch (SettingsPropertyNotFoundException)
             {
@@ -86,12 +84,12 @@ namespace File_Manager
             }
             try
             {
-                pos = Settings.Default.Pos;
-                Location = pos;
+                _pos = Settings.Default.Pos;
+                Location = _pos;
             }
             catch (SettingsPropertyNotFoundException)
             {
-                Settings.Default.Pos = pos;
+                Settings.Default.Pos = _pos;
                 Settings.Default.Save();
             }
             try
@@ -200,16 +198,6 @@ namespace File_Manager
             Settings.Default.Size = Size;
             Settings.Default.Save();
             Application.Exit();
-        }
-
-        private Point? GetLocationWithinScreen()
-        {
-            foreach (var screen in Screen.AllScreens)
-                if (screen.Bounds.Contains(Location))
-                    return new Point(Location.X - screen.Bounds.Left,
-                        Location.Y - screen.Bounds.Top);
-
-            return null;
         }
 
         private void button3_Click(object sender, EventArgs e)
