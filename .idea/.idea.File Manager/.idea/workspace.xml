@@ -4,7 +4,19 @@
     <projectFile>File Manager/File Manager.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7538331d-e3db-4c20-beae-78ba24372d56" name="Default Changelist" comment="" />
+    <list default="true" id="7538331d-e3db-4c20-beae-78ba24372d56" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/File Manager/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/File Manager/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/File Manager/v16/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/File Manager/v16/Server/sqlite3/storage.ide" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/File Manager/v16/Server/sqlite3/storage.ide-shm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/File Manager/v16/Server/sqlite3/storage.ide-wal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/App.config" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/App.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Form1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Form3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Properties/Settings.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Properties/Settings.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Properties/Settings.settings" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Properties/Settings.settings" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,16 +34,11 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/80/66a9c4f2/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3B28F550-0D54-4E01-9E30-DCA09FAB36D7/12/14521e73/Control.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/14/40f2960e/SettingsBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/04/28967366/Icon.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/93/05abb96f/__Error.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Projects/File Manager/File Manager/Form1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/db/48d2da4d/RuntimeConstructorInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -42,8 +49,9 @@
       <option value="$PROJECT_DIR$/File Manager/Program.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form3.Designer.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form1.Designer.cs" />
-      <option value="$PROJECT_DIR$/File Manager/Form3.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form1.cs" />
+      <option value="$PROJECT_DIR$/File Manager/Properties/Settings.settings" />
+      <option value="$PROJECT_DIR$/File Manager/Form3.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1miWGFcFw0r9TBVTtnNLu6cpLB9" />
@@ -106,13 +114,8 @@
       <workItem from="1610281852277" duration="2363000" />
       <workItem from="1610286722543" duration="4354000" />
       <workItem from="1610716997479" duration="14358000" />
-    </task>
-    <task id="LOCAL-00010" summary="Folder icon">
-      <created>1610036577519</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1610036577519</updated>
+      <workItem from="1611068126891" duration="1733000" />
+      <workItem from="1611587875606" duration="1233000" />
     </task>
     <task id="LOCAL-00011" summary="auto made">
       <created>1610041275105</created>
@@ -450,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610741368579</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="can change to fast search">
+      <created>1611068393489</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1611068393490</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,7 +483,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Fixed an error" />
     <MESSAGE value="step 1 of deleting items" />
     <MESSAGE value="step 1 of quick access and this pc" />
     <MESSAGE value="Fixed deleting" />
@@ -498,6 +507,7 @@
     <MESSAGE value="drag files out" />
     <MESSAGE value="less code space &amp; switch between Fast or Quality images" />
     <MESSAGE value="auto made" />
-    <option name="LAST_COMMIT_MESSAGE" value="auto made" />
+    <MESSAGE value="can change to fast search" />
+    <option name="LAST_COMMIT_MESSAGE" value="can change to fast search" />
   </component>
 </project>

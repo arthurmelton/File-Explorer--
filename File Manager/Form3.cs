@@ -1,10 +1,11 @@
 using System;
-using System.Diagnostics;
+using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+using File_Manager.Properties;
 
 namespace File_Manager
 {
@@ -23,11 +24,16 @@ namespace File_Manager
 
         private readonly Form1 _frm1;
 
+        private readonly Size _size;
+
+        private readonly Point pos;
+
         public Form3()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.Manual;
             DoubleBuffered = true;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            SetStyle(ControlStyles.ResizeRedraw, true);
             SetStyle(ControlStyles.ResizeRedraw, true);
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
             _frm1 = new Form1(Thread.CurrentThread) {TopLevel = false, Visible = true};
@@ -68,6 +74,26 @@ namespace File_Manager
             }
             treeView1.Nodes[treeView1.Nodes.Count - 1].EnsureVisible();
             treeView1.DrawMode = TreeViewDrawMode.OwnerDrawText;
+            try
+            {
+                _size = Settings.Default.Size;
+                Size = _size;
+            }
+            catch (SettingsPropertyNotFoundException)
+            {
+                Settings.Default.Size = Size;
+                Settings.Default.Save();
+            }
+            try
+            {
+                pos = Settings.Default.Pos;
+                Location = pos;
+            }
+            catch (SettingsPropertyNotFoundException)
+            {
+                Settings.Default.Pos = pos;
+                Settings.Default.Save();
+            }
         }
 
         private bool _dragging;
@@ -157,7 +183,20 @@ namespace File_Manager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Settings.Default.Pos = Location;
+            Settings.Default.Size = Size;
+            Settings.Default.Save();
             Application.Exit();
+        }
+
+        private Point? GetLocationWithinScreen()
+        {
+            foreach (var screen in Screen.AllScreens)
+                if (screen.Bounds.Contains(Location))
+                    return new Point(Location.X - screen.Bounds.Left,
+                        Location.Y - screen.Bounds.Top);
+
+            return null;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -211,9 +250,11 @@ namespace File_Manager
                     e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(233, 236, 244)), i);
             }
             else
+            {
                 e.Graphics.FillRectangle(Brushes.Transparent, i);
+            }
 
-            TextRenderer.DrawText(e.Graphics,    e.Node.Text,  e.Node.TreeView.Font,  e.Node.Bounds,  e.Node.ForeColor);
+            TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Node.Bounds, e.Node.ForeColor);
         }
     }
 }

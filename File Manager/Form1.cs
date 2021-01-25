@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
+using File_Manager.Properties;
 using Microsoft.WindowsAPICodePack.Shell;
 using static System.IO.Directory;
 
@@ -27,6 +29,19 @@ namespace File_Manager
         {
             _thread = thread;
             InitializeComponent();
+            try
+            {
+                //if ((bool) Settings.Default["QualityNotQuantity"]) return;
+
+                checkBox1.Checked = !(bool)Settings.Default.QualityNotQuantity;
+                QualityNotQuantity = !checkBox1.Checked;
+
+            }
+            catch (SettingsPropertyNotFoundException)
+            {
+                Settings.Default.QualityNotQuantity = checkBox1.Checked;
+                Settings.Default.Save();
+            }
         }
 
         private void button1_Click()
@@ -49,10 +64,7 @@ namespace File_Manager
         private void ThreadThis()
         {
 
-            foreach (var item in GetFiles(_folderBrowserDialog))
-            {
-                AddItem(item);
-            }
+            foreach (var item in GetFiles(_folderBrowserDialog)) AddItem(item);
 
             foreach (var item in GetDirectories(_folderBrowserDialog))
             {
@@ -96,7 +108,6 @@ namespace File_Manager
         public void AddItem(string item)
         {
             if (QualityNotQuantity)
-            {
                 try
                 {
                     using (var shellFile = ShellFile.FromFilePath(item))
@@ -125,11 +136,7 @@ namespace File_Manager
                         imageList1.Images.Add(imageList2.Images[6]);
                     }
                 }
-            }
-            else
-            {
-                imageList1.Images.Add(Icon.ExtractAssociatedIcon(item) ?? throw new InvalidOperationException());
-            }
+            else imageList1.Images.Add(Icon.ExtractAssociatedIcon(item) ?? throw new InvalidOperationException());
             var fileInfo = new FileInfo(item);
             _files.Add(fileInfo.FullName);
             var _item = listView1.Items.Add(fileInfo.Name, imageList1.Images.Count - 1);
@@ -410,14 +417,8 @@ namespace File_Manager
             foreach (var file in files)
             {
                 string i;
-                if (_folderBrowserDialog.EndsWith(@"\"))
-                {
-                    i = _folderBrowserDialog + file.Split(Convert.ToChar(@"\")).Last();
-                }
-                else
-                {
-                    i = _folderBrowserDialog + @"\" + file.Split(Convert.ToChar(@"\")).Last();
-                }
+                if (_folderBrowserDialog.EndsWith(@"\")) i = _folderBrowserDialog + file.Split(Convert.ToChar(@"\")).Last();
+                else i = _folderBrowserDialog + @"\" + file.Split(Convert.ToChar(@"\")).Last();
                 File.Move(file, i);
                 AddItem(i);
             }
@@ -437,17 +438,18 @@ namespace File_Manager
         {
             if (listView1.SelectedItems.Count == 0) return;
             if (_files == null) return;
+
             var files = new string[listView1.SelectedItems.Count];
-            for (var i = 0; i < listView1.SelectedItems.Count; i++)
-            {
-                files[i] = _files[listView1.SelectedItems[i].Index];
-            }
+            for (var i = 0; i < listView1.SelectedItems.Count; i++) files[i] = _files[listView1.SelectedItems[i].Index];
             DoDragDrop(new DataObject(DataFormats.FileDrop, files), DragDropEffects.Copy);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             QualityNotQuantity = !checkBox1.Checked;
+            Settings.Default.QualityNotQuantity = !checkBox1.Checked;
+            Settings.Default.Save();
+            Console.Out.WriteLine(Settings.Default.QualityNotQuantity);
         }
     }
 }
