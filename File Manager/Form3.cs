@@ -94,6 +94,19 @@ namespace File_Manager
                 Settings.Default.Pos = pos;
                 Settings.Default.Save();
             }
+            try
+            {
+                var max = Settings.Default.max;
+                if (max)
+                {
+                    WindowState = FormWindowState.Minimized;
+                }
+            }
+            catch (SettingsPropertyNotFoundException)
+            {
+                Settings.Default.max = WindowState.Equals(FormWindowState.Maximized);
+                Settings.Default.Save();
+            }
         }
 
         private bool _dragging;
@@ -208,6 +221,8 @@ namespace File_Manager
         {
             WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
+            Settings.Default.max = WindowState.Equals(FormWindowState.Maximized);
+            Settings.Default.Save();
         }
 
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
