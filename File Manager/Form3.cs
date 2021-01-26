@@ -34,7 +34,7 @@ namespace File_Manager
             SetStyle(ControlStyles.ResizeRedraw, true);
             SetStyle(ControlStyles.ResizeRedraw, true);
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
-            _frm1 = new Form1(Thread.CurrentThread) {TopLevel = false, Visible = true};
+            _frm1 = new Form1(Thread.CurrentThread, this) {TopLevel = false, Visible = true};
             panel1.Controls.Add(_frm1);
             //panel1.Dock = DockStyle.Fill;
             label1.Font = new Font(label1.Font, FontStyle.Bold);
@@ -105,6 +105,20 @@ namespace File_Manager
                 Settings.Default.max = WindowState.Equals(FormWindowState.Maximized);
                 Settings.Default.Save();
             }
+            /*try
+            {
+                var save = Settings.Default.saveds;
+
+                if (save == null) return;
+
+                foreach (var item in save)
+                {
+                    treeView1.Nodes.Add(item);
+                }
+            }
+            catch (SettingsPropertyNotFoundException)
+            {
+            }*/
         }
 
         private bool _dragging;
@@ -266,6 +280,12 @@ namespace File_Manager
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
             Settings.Default.max = WindowState.Equals(FormWindowState.Maximized);
             Settings.Default.Save();
+        }
+
+        public void AddItemToTree(string url)
+        {
+            var i = treeView1.Nodes.Add(url, url.Split(Convert.ToChar(@"\"))[url.Split(Convert.ToChar(@"\")).Length - 1], 6, 6);
+            i.Name = url;
         }
     }
 }

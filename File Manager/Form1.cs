@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
@@ -25,8 +26,11 @@ namespace File_Manager
 
         public static bool QualityNotQuantity = true;
 
-        public Form1(Thread thread)
+        private Form3 _form3;
+
+        public Form1(Thread thread, Form3 form3)
         {
+            _form3 = form3;
             _thread = thread;
             InitializeComponent();
             try
@@ -445,6 +449,11 @@ namespace File_Manager
             Settings.Default.QualityNotQuantity = !checkBox1.Checked;
             Settings.Default.Save();
             Console.Out.WriteLine(Settings.Default.QualityNotQuantity);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            _form3.AddItemToTree(_folderBrowserDialog);
         }
     }
 }

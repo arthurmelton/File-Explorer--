@@ -44,6 +44,7 @@ namespace File_Manager
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,12 +174,23 @@ namespace File_Manager
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(293, 51);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(82, 24);
+            this.button4.TabIndex = 9;
+            this.button4.Text = "add to tree";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(721, 633);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.progressBar1);
@@ -195,6 +207,8 @@ namespace File_Manager
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button button4;
 
         private System.Windows.Forms.CheckBox checkBox1;
 

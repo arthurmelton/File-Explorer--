@@ -7,10 +7,10 @@
     <list default="true" id="7538331d-e3db-4c20-beae-78ba24372d56" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.File Manager/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/App.config" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/App.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Manager/Form1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form1.resx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Manager/Form3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Form3.resx" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Form3.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Properties/Settings.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Properties/Settings.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Manager/Properties/Settings.settings" beforeDir="false" afterPath="$PROJECT_DIR$/File Manager/Properties/Settings.settings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,11 +32,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/80/66a9c4f2/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3B28F550-0D54-4E01-9E30-DCA09FAB36D7/12/14521e73/Control.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/14/40f2960e/SettingsBase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Projects/File Manager/File Manager/Form3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A84B63C7-42D5-480B-9047-8BE2A17C9AC4/04/28967366/Icon.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/93/05abb96f/__Error.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Projects/File Manager/File Manager/Form3.Designer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/db/48d2da4d/RuntimeConstructorInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/394C8FAE-4BA1-4DD2-A259-BD441D5BEF25/7a/cc5e7007/SettingsPropertyValue.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -47,6 +46,8 @@
       <option value="$PROJECT_DIR$/File Manager/Form3.Designer.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form1.Designer.cs" />
       <option value="$PROJECT_DIR$/File Manager/Form1.cs" />
+      <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3B28F550-0D54-4E01-9E30-DCA09FAB36D7/12/14521e73/Control.cs" />
+      <option value="$PROJECT_DIR$/File Manager/Properties/Settings.Designer.cs" />
       <option value="$PROJECT_DIR$/File Manager/Properties/Settings.settings" />
       <option value="$PROJECT_DIR$/File Manager/Form3.cs" />
     </changedPaths>
@@ -113,27 +114,8 @@
       <workItem from="1610716997479" duration="14358000" />
       <workItem from="1611068126891" duration="1733000" />
       <workItem from="1611587875606" duration="1233000" />
-    </task>
-    <task id="LOCAL-00011" summary="auto made">
-      <created>1610041275105</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1610041275105</updated>
-    </task>
-    <task id="LOCAL-00012" summary="auto made">
-      <created>1610041285300</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1610041285300</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Made it work and made it look nicer">
-      <created>1610041313475</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1610041313475</updated>
+      <workItem from="1611671943316" duration="613000" />
+      <workItem from="1611683057736" duration="3736000" />
     </task>
     <task id="LOCAL-00014" summary="auto made">
       <created>1610041320921</created>
@@ -457,7 +439,28 @@
       <option name="project" value="LOCAL" />
       <updated>1611068393490</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Saves if it is maximized">
+      <created>1611595378931</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1611595378931</updated>
+    </task>
+    <task id="LOCAL-00061" summary="maximize if double click top">
+      <created>1611595448755</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1611595448755</updated>
+    </task>
+    <task id="LOCAL-00062" summary="optimize code">
+      <created>1611595464456</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1611595464456</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,9 +483,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="step 1 of deleting items" />
-    <MESSAGE value="step 1 of quick access and this pc" />
-    <MESSAGE value="Fixed deleting" />
     <MESSAGE value="Fixed error when swiching list and made the docks in the right order" />
     <MESSAGE value="added pictures next to items" />
     <MESSAGE value="use treeview now" />
@@ -505,6 +505,9 @@
     <MESSAGE value="less code space &amp; switch between Fast or Quality images" />
     <MESSAGE value="auto made" />
     <MESSAGE value="can change to fast search" />
-    <option name="LAST_COMMIT_MESSAGE" value="can change to fast search" />
+    <MESSAGE value="Saves if it is maximized" />
+    <MESSAGE value="maximize if double click top" />
+    <MESSAGE value="optimize code" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimize code" />
   </component>
 </project>
