@@ -11,20 +11,28 @@ namespace File_Manager
 {
     public sealed partial class Form3 : Form
     {
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn
-        (
-            int nLeftRect, // x-coordinate of upper-left corner
-            int nTopRect, // y-coordinate of upper-left corner
-            int nRightRect, // x-coordinate of lower-right corner
-            int nBottomRect, // y-coordinate of lower-right corner
-            int nWidthEllipse, // height of ellipse
-            int nHeightEllipse // width of ellipse
-        );
+
+        private const int
+            HtLeft = 10,
+            HtRight = 11,
+            HtTop = 12,
+            HtTopLeft = 13,
+            HtTopRight = 14,
+            HtBottom = 15,
+            HtBottomLeft = 16,
+            HtBottomRight = 17;
+
+        private const int _ = 10; // you can rename this variable if you like
 
         private readonly Form1 _frm1;
 
         private readonly Point _pos;
+
+        private Point _dragCursorPoint;
+
+        private Point _dragFormPoint;
+
+        private bool _dragging;
 
         public Form3()
         {
@@ -95,10 +103,7 @@ namespace File_Manager
             try
             {
                 var max = Settings.Default.max;
-                if (max)
-                {
-                    WindowState = FormWindowState.Minimized;
-                }
+                if (max) WindowState = FormWindowState.Minimized;
             }
             catch (SettingsPropertyNotFoundException)
             {
@@ -121,11 +126,32 @@ namespace File_Manager
             }*/
         }
 
-        private bool _dragging;
+        private new Rectangle Top => new Rectangle(0, 0, ClientSize.Width, _);
 
-        private Point _dragCursorPoint;
+        private new Rectangle Left => new Rectangle(0, 0, _, ClientSize.Height);
 
-        private Point _dragFormPoint;
+        private new Rectangle Bottom => new Rectangle(0, ClientSize.Height - _, ClientSize.Width, _);
+
+        private new Rectangle Right => new Rectangle(ClientSize.Width - _, 0, _, ClientSize.Height);
+
+        private static Rectangle TopLeft => new Rectangle(0, 0, _, _);
+
+        private Rectangle TopRight => new Rectangle(ClientSize.Width - _, 0, _, _);
+
+        private Rectangle BottomLeft => new Rectangle(0, ClientSize.Height - _, _, _);
+
+        private Rectangle BottomRight => new Rectangle(ClientSize.Width - _, ClientSize.Height - _, _, _);
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect, // x-coordinate of upper-left corner
+            int nTopRect, // y-coordinate of upper-left corner
+            int nRightRect, // x-coordinate of lower-right corner
+            int nBottomRect, // y-coordinate of lower-right corner
+            int nWidthEllipse, // height of ellipse
+            int nHeightEllipse // width of ellipse
+        );
 
         private void FormMain_MouseDown(object sender, MouseEventArgs e)
         {
@@ -156,34 +182,6 @@ namespace File_Manager
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width - 0, Height - 0, 7, 7));
             _frm1.ChangeSize(panel1.Size.Height, panel1.Size.Width);
         }
-
-        private const int
-            HtLeft = 10,
-            HtRight = 11,
-            HtTop = 12,
-            HtTopLeft = 13,
-            HtTopRight = 14,
-            HtBottom = 15,
-            HtBottomLeft = 16,
-            HtBottomRight = 17;
-
-        private const int _ = 10; // you can rename this variable if you like
-
-        private new Rectangle Top => new Rectangle(0, 0, ClientSize.Width, _);
-
-        private new Rectangle Left => new Rectangle(0, 0, _, ClientSize.Height);
-
-        private new Rectangle Bottom => new Rectangle(0, ClientSize.Height - _, ClientSize.Width, _);
-
-        private new Rectangle Right => new Rectangle(ClientSize.Width - _, 0, _, ClientSize.Height);
-
-        private static Rectangle TopLeft => new Rectangle(0, 0, _, _);
-
-        private Rectangle TopRight => new Rectangle(ClientSize.Width - _, 0, _, _);
-
-        private Rectangle BottomLeft => new Rectangle(0, ClientSize.Height - _, _, _);
-
-        private Rectangle BottomRight => new Rectangle(ClientSize.Width - _, ClientSize.Height - _, _, _);
 
 
         protected override void WndProc(ref Message message)

@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
@@ -20,13 +19,21 @@ namespace File_Manager
 
         private static readonly List<string> Files = new List<string>();
 
-        private string _folderBrowserDialog;
-
-        private Thread _thread;
-
         public static bool QualityNotQuantity = true;
 
-        private Form3 _form3;
+        private static List<string> _dir;
+
+        private static string _text;
+
+        private static ImageList _imageList;
+
+        private static ListView _listView;
+
+        private string _folderBrowserDialog;
+
+        private readonly Form3 _form3;
+
+        private Thread _thread;
 
         public Form1(Thread thread, Form3 form3)
         {
@@ -331,14 +338,6 @@ namespace File_Manager
             Width = w;
             Height = h;
         }
-
-        private static List<string> _dir;
-
-        private static string _text;
-
-        private static ImageList _imageList;
-
-        private static ListView _listView;
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
