@@ -29,9 +29,9 @@ namespace File_Manager
 
         private static ListView _listView;
 
-        private string _folderBrowserDialog;
-
         private readonly Form3 _form3;
+
+        private string _folderBrowserDialog;
 
         private Thread _thread;
 
